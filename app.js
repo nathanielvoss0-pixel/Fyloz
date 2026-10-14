@@ -1,1 +1,187 @@
-const $=id=>document.getElementById(id);const fileInput=$('image'),message=$('message'),go=$('go');let selected=null,outputUrl=null;function say(text,error=false){message.textContent=text;message.style.color=error?'#a12c19':'';}fileInput.addEventListener('change',()=>{selected=fileInput.files[0]||null;if(outputUrl){URL.revokeObjectURL(outputUrl);outputUrl=null;}if(!selected){say('Select a file to see its size.');return;}if(!selected.type.startsWith('image/')){say('Please select an image file.',true);selected=null;return;}if(selected.size>20*1024*1024){say('Choose an image smaller than 20 MB.',true);selected=null;return;}say(selected.name+' — '+(selected.size/1024).toFixed(1)+' KB. Ready to process.');});function readImage(file){return new Promise((resolve,reject)=>{const url=URL.createObjectURL(file),img=new Image();img.onload=()=>{URL.revokeObjectURL(url);resolve(img)};img.onerror=()=>{URL.revokeObjectURL(url);reject(Error('The browser could not open this image.'))};img.src=url;});}function encode(canvas,q){return new Promise(resolve=>canvas.toBlob(resolve,'image/jpeg',q));}async function fit(canvas,limit){let low=.08,high=.96,best=null;for(let i=0;i<11;i++){const q=(low+high)/2,b=await encode(canvas,q);if(!b)throw Error('Your browser could not encode this image.');if(b.size<=limit){best=b;low=q}else high=q;}return best;}go.addEventListener('click',async()=>{if(!selected){say('Choose an image first.',true);fileInput.focus();return;}const kb=Number($('limit').value);if(!Number.isFinite(kb)||kb<1||kb>20480){say('Enter a target between 1 and 20,480 KB.',true);return;}go.disabled=true;go.textContent='Working…';try{const img=await readImage(selected),limit=Math.floor(kb*1024);let w=img.naturalWidth,h=img.naturalHeight,blob=null;for(let pass=0;pass<10;pass++){const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,w,h);ctx.drawImage(img,0,0,w,h);blob=await fit(canvas,limit);if(blob)break;w=Math.max(1,Math.floor(w*.82));h=Math.max(1,Math.floor(h*.82));}if(!blob){say('Could not reach that limit. Try a larger target.',true);return;}if(outputUrl)URL.revokeObjectURL(outputUrl);outputUrl=URL.createObjectURL(blob);let old=$('download-result');if(old)old.remove();const result=document.createElement('div');result.id='download-result';result.className='result';const info=document.createElement('p');info.textContent='Result: '+(blob.size/1024).toFixed(1)+' KB · '+w+' × '+h+' px · JPEG';const link=document.createElement('a');link.href=outputUrl;link.download=(selected.name.replace(/\.[^.]+$/,'')||'image')+'-fyloz.jpg';link.className='download';link.textContent='Download compressed image';result.append(info,link);message.insertAdjacentElement('afterend',result);say(blob.size<=limit?'Done — the image is under your requested limit.':'The result could not fit the requested limit.');}catch(e){say(e.message||'Something went wrong.',true);}finally{go.disabled=false;go.textContent='Prepare image';}});window.addEventListener('beforeunload',()=>{if(outputUrl)URL.revokeObjectURL(outputUrl)});
+const $ = id => document.getElementById(id);
+const fileInput = $('image');
+const message = $('message');
+const go = $('go');
+const limitInput = $('limit');
+const resultBox = $('download-result');
+const preview = $('preview');
+const downloadLink = $('download');
+const resultInfo = $('result-info');
+const savingsLabel = $('savings');
+let selectedFile = null;
+let outputUrl = null;
+
+function say(text, error = false) {
+  message.textContent = text;
+  message.style.color = error ? '#a12c19' : '';
+}
+function clearResult() {
+  if (outputUrl) URL.revokeObjectURL(outputUrl);
+  outputUrl = null;
+  preview.removeAttribute('src');
+  downloadLink.removeAttribute('href');
+  resultBox.hidden = true;
+}
+function formatKB(bytes) {
+  return (bytes / 1024).toFixed(bytes < 10 * 1024 ? 2 : 1) + ' KB';
+}
+function setLimit(value) {
+  limitInput.value = value;
+  document.querySelectorAll('[data-kb]').forEach(button => {
+    const active = Number(button.dataset.kb) === Number(value);
+    button.classList.toggle('selected', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+}
+document.querySelectorAll('[data-kb]').forEach(button => {
+  button.setAttribute('aria-pressed', String(button.classList.contains('selected')));
+  button.addEventListener('click', () => setLimit(button.dataset.kb));
+});
+limitInput.addEventListener('input', () => {
+  document.querySelectorAll('[data-kb]').forEach(button => {
+    const active = Number(button.dataset.kb) === Number(limitInput.value);
+    button.classList.toggle('selected', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+});
+
+fileInput.addEventListener('change', () => {
+  clearResult();
+  selectedFile = fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
+  if (!selectedFile) {
+    say('Select an image to get started.');
+    return;
+  }
+  if (!['image/jpeg', 'image/png', 'image/webp'].includes(selectedFile.type)) {
+    selectedFile = null;
+    fileInput.value = '';
+    say('Please choose a JPG, PNG, or WebP image.', true);
+    return;
+  }
+  if (selectedFile.size > 20 * 1024 * 1024) {
+    selectedFile = null;
+    fileInput.value = '';
+    say('This image is over 20 MB. Choose a smaller file.', true);
+    return;
+  }
+  say(selectedFile.name + ' · ' + formatKB(selectedFile.size) + ' · Ready to prepare.');
+});
+
+function readImage(file) {
+  return new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      resolve(img);
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+      reject(new Error('The browser could not open this image. Try another file.'));
+    };
+    img.src = url;
+  });
+}
+function encodeJpeg(canvas, quality) {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob(blob => {
+      if (blob) resolve(blob);
+      else reject(new Error('Your browser could not create the compressed image.'));
+    }, 'image/jpeg', quality);
+  });
+}
+async function bestQualityAtSize(canvas, targetBytes) {
+  let low = 0.05;
+  let high = 0.95;
+  let best = null;
+  for (let i = 0; i < 12; i++) {
+    const quality = (low + high) / 2;
+    const blob = await encodeJpeg(canvas, quality);
+    if (blob.size <= targetBytes) {
+      best = blob;
+      low = quality;
+    } else {
+      high = quality;
+    }
+  }
+  return best;
+}
+async function compressToLimit(img, targetBytes) {
+  let width = img.naturalWidth;
+  let height = img.naturalHeight;
+
+  // Limit extreme canvas sizes so a very large photo does not exhaust browser memory.
+  const maxPixels = 40000000;
+  if (width * height > maxPixels) {
+    const scale = Math.sqrt(maxPixels / (width * height));
+    width = Math.max(1, Math.floor(width * scale));
+    height = Math.max(1, Math.floor(height * scale));
+  }
+
+  for (let pass = 0; pass < 18; pass++) {
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    const context = canvas.getContext('2d');
+    if (!context) throw new Error('Your browser could not prepare this image.');
+    // JPEG has no transparency; fill transparent source areas with white.
+    context.fillStyle = '#ffffff';
+    context.fillRect(0, 0, width, height);
+    context.drawImage(img, 0, 0, width, height);
+
+    const blob = await bestQualityAtSize(canvas, targetBytes);
+    canvas.width = 1;
+    canvas.height = 1;
+    if (blob && blob.size <= targetBytes) return { blob, width, height };
+
+    if (width === 1 && height === 1) break;
+    width = Math.max(1, Math.floor(width * 0.82));
+    height = Math.max(1, Math.floor(height * 0.82));
+  }
+  throw new Error('This target is too small to reach reliably. Try a larger KB limit.');
+}
+
+go.addEventListener('click', async () => {
+  if (!selectedFile) {
+    say('Choose an image first.', true);
+    fileInput.focus();
+    return;
+  }
+  const kb = Number(limitInput.value);
+  if (!Number.isFinite(kb) || kb < 1 || kb > 20480) {
+    say('Enter a target between 1 and 20,480 KB.', true);
+    limitInput.focus();
+    return;
+  }
+
+  clearResult();
+  go.disabled = true;
+  go.textContent = 'Preparing image…';
+  say('Compressing in your browser. Keep this tab open…');
+  try {
+    const image = await readImage(selectedFile);
+    const targetBytes = Math.floor(kb * 1024);
+    const result = await compressToLimit(image, targetBytes);
+    if (result.blob.size > targetBytes) {
+      throw new Error('The result exceeded your limit. Please try again with a larger target.');
+    }
+    outputUrl = URL.createObjectURL(result.blob);
+    preview.src = outputUrl;
+    downloadLink.href = outputUrl;
+    downloadLink.download = (selectedFile.name.replace(/\.[^.]+$/, '') || 'image') + '-fyloz.jpg';
+    resultInfo.textContent = formatKB(selectedFile.size) + ' original → ' + formatKB(result.blob.size) +
+      ' compressed · ' + result.width + ' × ' + result.height + ' px · JPEG';
+    const saved = selectedFile.size > 0 ? Math.round((1 - result.blob.size / selectedFile.size) * 100) : 0;
+    savingsLabel.textContent = saved > 0 ? saved + '% smaller' : 'Within target';
+    resultBox.hidden = false;
+    say('Done — the output is ' + formatKB(result.blob.size) + ', within your ' + kb + ' KB limit.');
+    resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } catch (error) {
+    say(error.message || 'Something went wrong. Please try another image.', true);
+  } finally {
+    go.disabled = false;
+    go.innerHTML = 'Prepare image <span aria-hidden="true">↗</span>';
+  }
+});
+
+window.addEventListener('beforeunload', clearResult);
