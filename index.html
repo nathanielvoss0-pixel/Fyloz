@@ -1,2 +1,76 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fyloz — Make your image fit</title><meta name="description" content="A simple image tool for file-size limits."><link rel="stylesheet" href="styles.css"></head><body><header><a href="#" aria-label="Fyloz home"><b>◆ fyloz</b></a><nav><a href="#tool">The tool</a> · <a href="#how">How it works</a></nav></header><main><section><p>SMALL FILE. BIG RELIEF.</p><h1>Make your image <em>fit.</em></h1><p>Get a photo under the file-size limit your form asks for. Choose a maximum size and prepare a file in your browser.</p></section><section id="tool" class="workspace"><div class="work"><h2>Compress an image</h2><div class="drop"><p>Choose an image to get started</p><input type="file" id="image" accept="image/jpeg,image/png,image/webp"><p>JPG · PNG · WEBP</p></div><p id="message" role="status">Select a file to see its size.</p></div><aside class="settings"><h2>Set your limit</h2><label for="limit">Maximum file size (KB)</label><p><input id="limit" type="number" min="1" value="100"> KB</p><button class="primary" id="go">Prepare image</button><p>Processing happens locally in your browser.</p></aside></section><section id="how" class="section"><h2>Three steps. No guessing.</h2><div class="steps"><article><b>01 — CHOOSE</b><h3>Pick your image</h3><p>Select a file from your device.</p></article><article><b>02 — SET THE LIMIT</b><h3>Enter the required KB</h3><p>Use the maximum size your form specifies.</p></article><article><b>03 — SAVE</b><h3>Check the result</h3><p>Inspect the output before submitting it.</p></article></div></section><section id="faq" class="section"><h2>Before you download</h2><p>This first version is a project shell; the actual compression engine still needs implementation and testing before this can be called a working compressor.</p></section></main><footer class="footer">© Fyloz <span>Useful tools, without the fuss.</span></footer><script src="app.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f2ec">
+  <title>Fyloz — Compress images to a target KB size</title>
+  <meta name="description" content="Compress JPG, PNG, and WebP images to a file-size limit. Choose a target in KB and prepare your image privately in your browser.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Fyloz home"><span aria-hidden="true">◆</span> fyloz</a>
+    <nav aria-label="Main navigation"><a href="#tool">The tool</a><a href="#how">How it works</a><a href="#faq">FAQ</a></nav>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">SMALL FILE. BIG RELIEF.</p>
+      <h1>Make your image <em>fit.</em></h1>
+      <p class="intro-copy">Need a photo under 100 KB for a form? Set the limit, prepare your image, and download a smaller copy. No account needed.</p>
+    </section>
+    <section id="tool" class="workspace" aria-labelledby="tool-title">
+      <div class="work">
+        <h2 id="tool-title">Compress an image</h2>
+        <label class="drop" for="image">
+          <span class="upload-mark" aria-hidden="true">↑</span>
+          <strong>Choose an image</strong>
+          <span>or use the file picker below</span>
+          <input type="file" id="image" accept="image/jpeg,image/png,image/webp">
+          <small>JPG, PNG or WebP · up to 20 MB</small>
+        </label>
+        <p id="message" class="status" role="status" aria-live="polite">Select an image to get started.</p>
+        <div id="download-result" class="result" hidden>
+          <div class="result-heading"><h3>Your compressed image</h3><span id="savings" class="savings"></span></div>
+          <img id="preview" class="preview" alt="Preview of the compressed image">
+          <p id="result-info" class="result-info"></p>
+          <a id="download" class="download" href="#">Download compressed image</a>
+        </div>
+      </div>
+      <aside class="settings">
+        <h2>Set your limit</h2>
+        <label for="limit">Maximum file size</label>
+        <div class="limit-field"><input id="limit" type="number" min="1" max="20480" value="100" inputmode="numeric" aria-describedby="limit-help"><span>KB</span></div>
+        <p id="limit-help" class="muted">The downloaded file will be at or below this size, or we’ll tell you if the target can’t be reached.</p>
+        <div class="presets" aria-label="Common file-size limits">
+          <button type="button" data-kb="50">50 KB</button>
+          <button type="button" data-kb="100" class="selected">100 KB</button>
+          <button type="button" data-kb="200">200 KB</button>
+          <button type="button" data-kb="500">500 KB</button>
+        </div>
+        <button class="primary" id="go" type="button">Prepare image <span aria-hidden="true">↗</span></button>
+        <p class="privacy"><span aria-hidden="true">◎</span> <strong>Private by design.</strong> Your image is processed in this browser and is not uploaded to a server.</p>
+      </aside>
+    </section>
+    <section id="how" class="section">
+      <p class="eyebrow">HOW IT WORKS</p><h2>Three steps. No guessing.</h2>
+      <div class="steps">
+        <article><b>01 — CHOOSE</b><h3>Pick your image</h3><p>Select a JPG, PNG or WebP image from your device.</p></article>
+        <article><b>02 — SET THE LIMIT</b><h3>Enter the required KB</h3><p>Choose the maximum file size shown by the form or website.</p></article>
+        <article><b>03 — SAVE</b><h3>Check the result</h3><p>Review the output size, then download your compressed copy.</p></article>
+      </div>
+    </section>
+    <section id="faq" class="section faq-section">
+      <p class="eyebrow">GOOD TO KNOW</p><h2>Before you download</h2>
+      <div class="faq-list">
+        <article><h3>Does my image leave my device?</h3><p>No. Compression happens locally in your browser; the image is not sent to Fyloz.</p></article>
+        <article><h3>Will it always reach my target size?</h3><p>The tool tries lower image quality and smaller dimensions. Very small targets may be impossible to reach while keeping a usable image, and we’ll tell you when that happens.</p></article>
+        <article><h3>What format will I download?</h3><p>The output is a JPEG image. Transparent areas in PNG or WebP files are filled with white, so check the preview before downloading.</p></article>
+        <article><h3>Will the image look exactly the same?</h3><p>Compression can reduce detail, and smaller dimensions reduce resolution. Always inspect the preview before using the file.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><span>© Fyloz</span><span>Useful tools, without the fuss.</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
