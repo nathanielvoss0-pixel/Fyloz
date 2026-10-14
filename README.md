@@ -1,37 +1,40 @@
 # Fyloz
 
-A browser-first toolkit that helps people make files fit real upload requirements.
+Fyloz is a browser-first image compression tool for people who need to meet a file-size limit, such as 100 KB, before uploading a photo to a form.
 
-## Product direction
+## Current features
 
-- Global audience, English first; add translated routes only after the first tool is useful and tested.
-- Free basic tools with no account required.
-- Process files on the user's device whenever practical; never claim local processing unless the implementation proves it.
-- Put the working tool before marketing copy.
-- Avoid generic AI-template visuals: warm off-white canvas, near-black typography, one restrained vermilion accent, clear borders, purposeful spacing, no gradients, emoji icons, or repetitive soft-shadow cards.
-- Reserve advertising space without covering controls or shifting the page during load.
+- Select JPG, PNG, or WebP images up to 20 MB.
+- Choose a maximum output size in KB, with quick presets for 50, 100, 200, and 500 KB.
+- Compress locally in the browser by adjusting JPEG quality and, when needed, image dimensions.
+- Preview the output, inspect the before/after file sizes, and download the JPEG.
+- No account required; the selected image is not uploaded by the compression tool.
+- Responsive layout and basic privacy, terms, and contact pages.
 
-## First product hypothesis
+## Important behavior
 
-An image compliance tool: select an image, set a maximum file size in KB, optionally reduce dimensions, inspect the output, and download it. Later workflows could cover exact pixel dimensions, signature images, and country-specific photo specifications only when requirements can be verified from authoritative sources.
-
-## Research finding
-
-The broad "compress image to 100 KB" niche is already crowded. Search results include many tools with local processing, target-size presets, and batch compression. Fyloz should not launch as another thin clone. Differentiation must come from a reliable workflow, honest output-size reporting, clear handling of transparency and metadata, accessibility, and verified real-world upload requirements.
-
-## SEO principle
-
-Every indexed landing page should solve a distinct user task with a working tool and genuinely useful information. Do not publish mass-produced pages that merely swap a number in the title. Google's people-first guidance says the main content should fulfill the page's purpose and warns against search-engine-first pages created mainly to attract rankings.
+- Output format is JPEG. Transparent areas in PNG or WebP inputs are filled with white.
+- Compression can reduce visual quality and resolution. Users should inspect the preview before using the result.
+- Very small target sizes may not be achievable for every image. The tool should report failure rather than claim a file is within the limit when it is not.
+- The current deployment uses a lightweight BusyBox HTTP server in a Docker container.
 
 ## Before public launch
 
-- Confirm the production domain before adding canonical URLs and sitemap entries.
-- Add accurate privacy, terms, and contact pages.
-- Test file-size limits, large files, transparency, browser compatibility, keyboard use, and mobile layouts.
-- Add advertising only after usability is stable; monitor layout shifts.
-- Measure real impressions, clicks, and successful tool use before forecasting revenue.
+- Test target-size guarantees across different images and browsers, including tiny targets, large dimensions, transparency, and malformed files.
+- Verify mobile layout, keyboard navigation, screen-reader status updates, and download behavior.
+- Confirm the final production domain before adding canonical URLs, robots directives, and sitemap entries.
+- Review privacy and terms pages before adding analytics or advertising.
+- Measure real impressions, clicks, and successful tool use before making revenue forecasts.
 
-## Source links
+## Product direction
 
-- Google Search Central, helpful and people-first content: https://developers.google.com/search/docs/fundamentals/creating-helpful-content
-- Competitive examples surfaced in initial search: https://phototokb.com/ and https://kbsize.com/compress-image-to-100kb/
+The broad “compress image to 100 KB” niche is crowded. Fyloz should differentiate through reliable output-size reporting, clear handling of transparency, accessibility, and verified real-world upload requirements. Future tools such as exact pixel dimensions or country-specific photo specifications should only be added when the requirements can be verified from authoritative sources.
+
+## SEO principle
+
+Each indexed landing page should solve a distinct user task with a working tool and genuinely useful information. Avoid mass-produced pages that merely swap a number in the title.
+
+## References
+
+- Google Search Central — [Creating helpful, reliable, people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)
+- Competitive examples: [PhotoToKB](https://phototokb.com/) and [KBSize](https://kbsize.com/compress-image-to-100kb/)
