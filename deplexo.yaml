@@ -6,4 +6,4 @@ build:
   dockerfile: Dockerfile
 
 run:
-  port: 80
+  port: 8080
