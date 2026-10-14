@@ -1,11 +1,9 @@
-FROM nginx:alpine
+FROM busybox:1.36
 
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY index.html /usr/share/nginx/html/index.html
-COPY styles.css /usr/share/nginx/html/styles.css
-COPY app.js /usr/share/nginx/html/app.js
+WORKDIR /www
+COPY index.html /www/index.html
+COPY styles.css /www/styles.css
+COPY app.js /www/app.js
 
-EXPOSE 80
-
-ENTRYPOINT ["nginx"]
-CMD ["-g", "daemon off;"]
+EXPOSE 8080
+CMD ["httpd", "-f", "-p", "8080", "-h", "/www"]
