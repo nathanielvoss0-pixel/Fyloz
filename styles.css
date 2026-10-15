@@ -89,3 +89,6 @@ h2{font-size:23px;line-height:1.2;letter-spacing:-.7px;margin:0 0 22px}
 .transform-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:16px 0}.secondary{padding:11px 9px;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:13px;font-weight:700;cursor:pointer}.secondary:hover{border-color:var(--accent);background:var(--soft)}.reset-control{width:100%;margin:0 0 22px}.secondary:disabled{opacity:.55;cursor:wait}
 
 @media(max-width:720px){.site-header{flex-wrap:wrap;gap:8px;padding-top:12px;padding-bottom:12px}nav{flex-wrap:wrap;justify-content:flex-end;gap:8px 12px}.transform-controls{grid-template-columns:1fr 1fr}}
+
+/* Text watermark controls */
+.text-setting{display:block;width:100%;padding:11px 12px;margin:7px 0 18px;border:1px solid #bdbbb1;background:#fff;color:var(--ink);font:inherit}.color-setting{display:block;width:100%;height:42px;margin:7px 0 18px;padding:3px;border:1px solid #bdbbb1;background:#fff}.range-setting{display:block;width:100%;margin:7px 0 18px;accent-color:var(--accent)}.settings>label span{float:right;color:var(--muted);font-weight:400}
