@@ -14,7 +14,7 @@ let outputUrl = null;
 let angle = 0;
 let flipX = 1;
 let flipY = 1;
-let renderId = 0;
+let renderId = 0;\nlet fileReadId = 0;
 const allowed = ['image/jpeg', 'image/png', 'image/webp'];
 
 function say(text, error = false) {
@@ -146,13 +146,13 @@ fileInput.addEventListener('change', async () => {
     sourceImage = image;
     say(selectedFile.name + ' · ' + image.naturalWidth + ' × ' + image.naturalHeight + ' px · Ready to edit.');
     await renderPreview();
-    if (current === renderId) go.disabled = false;
+    if (current === fileReadId) go.disabled = false;
   } catch (error) {
     if (current !== renderId) return;
     sourceImage = null; selectedFile = null; go.disabled = true;
     say(error.message || 'Could not read this image.', true);
   } finally {
-    if (current === renderId) fileInput.disabled = false;
+    if (current === fileReadId) fileInput.disabled = false;
   }
 });
 go.addEventListener('click', () => {
