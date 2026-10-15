@@ -32,6 +32,12 @@ Fyloz is a lightweight, browser-based collection of image tools. Image processin
 - Preview changes and export a new JPG, PNG, or WebP copy.
 - Keeps the original file unchanged and caps input/output at 20 million pixels.
 
+### 5. Add text watermark
+- URL: `/watermark-image/`
+- Add custom text with adjustable color, opacity, size, and one of five positions.
+- Preview and export JPG, PNG, or WebP locally in the browser.
+- Limits images to 12,000 px per side and 20 million pixels total.
+
 ## Static deployment
 
 The site is served by BusyBox `httpd` inside Docker. Deplexo builds from the repository's `Dockerfile` and serves port 8080. Keep the `COPY` entries in the Dockerfile aligned with public pages and SEO files.
@@ -42,6 +48,7 @@ The site is served by BusyBox `httpd` inside Docker. Deplexo builds from the rep
 - `resize-image/index.html`, `resize-image/resize.js`: image resize tool.
 - `convert-image/index.html`, `convert-image/convert.js`: image format converter.
 - `edit-image/index.html`, `edit-image/edit.js`: rotate and flip tool.
+- `watermark-image/index.html`, `watermark-image/watermark.js`: text watermark tool.
 - `privacy.html`, `terms.html`, `contact.html`: policy and contact pages.
 - `sitemap.xml`, `robots.txt`: crawl configuration.
 - `favicon.svg`: lightweight browser tab icon.
@@ -49,7 +56,7 @@ The site is served by BusyBox `httpd` inside Docker. Deplexo builds from the rep
 
 ## Before public launch
 
-- Test all four tools in desktop and mobile browsers with JPG, PNG transparency, WebP, very large images, malformed files, unsupported formats, and extreme dimensions.
+- Test all five tools in desktop and mobile browsers with JPG, PNG transparency, WebP, very large images, malformed files, unsupported formats, and extreme dimensions.
 - Verify that downloaded files open and that the resize tool preserves aspect ratio when selected.
 - Check keyboard navigation, status messages, and small-screen layout.
 - Confirm the final production domain before using canonical URLs or submitting the sitemap.
