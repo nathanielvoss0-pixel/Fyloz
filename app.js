@@ -132,7 +132,7 @@ async function compressToLimit(img, targetBytes) {
   let height = img.naturalHeight;
 
   // Limit extreme canvas sizes so a very large photo does not exhaust browser memory.
-  const maxPixels = 40000000;
+  const maxPixels = 20000000;
   if (width * height > maxPixels) {
     const scale = Math.sqrt(maxPixels / (width * height));
     width = Math.max(1, Math.floor(width * scale));
