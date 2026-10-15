@@ -132,7 +132,6 @@ function updateLabels() {
 }
 [textInput, positionInput, colorInput, opacityInput, sizeInput, formatInput].forEach(control => {
   control.addEventListener('input', () => { updateLabels(); if (sourceImage) renderPreview(); });
-  control.addEventListener('change', () => { updateLabels(); if (sourceImage) renderPreview(); });
 });
 const dropArea = document.querySelector('.drop');
 dropArea.addEventListener('dragover', event => { event.preventDefault(); if (!fileInput.disabled) dropArea.classList.add('drag-over'); });
@@ -150,6 +149,7 @@ dropArea.addEventListener('drop', event => {
 });
 fileInput.addEventListener('change', async () => {
   const current = ++fileReadId;
+  renderId += 1;
   clearResult();
   selectedFile = fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
   sourceImage = null;
