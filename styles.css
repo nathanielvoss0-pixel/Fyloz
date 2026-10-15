@@ -123,3 +123,17 @@ section[aria-labelledby="more-tools-title"] .steps{grid-template-columns:repeat(
 :root[data-theme="dark"] .theme-toggle{background:#292a26;color:var(--ink);border-color:var(--line)}
 :root[data-theme="dark"] .primary{background:var(--accent);color:#151614}
 :root[data-theme="dark"] .download{background:var(--accent);color:#151614}
+
+
+/* Fix transform action buttons in dark mode */
+:root[data-theme="dark"] .secondary,
+:root[data-theme="dark"] .secondary:disabled {
+  background: #292a26;
+  color: var(--ink);
+  border-color: var(--line);
+}
+:root[data-theme="dark"] .secondary:hover:not(:disabled) {
+  background: var(--soft);
+  color: var(--ink);
+  border-color: var(--accent);
+}
