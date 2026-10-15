@@ -109,6 +109,8 @@ section[aria-labelledby="more-tools-title"] .steps{grid-template-columns:repeat(
 :root[data-theme="dark"] .presets button{background:#292a26;color:var(--ink);border-color:var(--line)}
 :root[data-theme="dark"] .presets button.selected,:root[data-theme="dark"] .pdf-choice:hover,:root[data-theme="dark"] .pdf-choice.selected{background:var(--soft);border-color:var(--accent)}
 :root[data-theme="dark"] .result,:root[data-theme="dark"] .pdf-results{border-color:var(--line)}
+:root[data-theme="dark"] .result{background:var(--white);color:var(--ink)}
+:root[data-theme="dark"] .result h3,:root[data-theme="dark"] .result-info{color:var(--ink)}
 :root[data-theme="dark"] .preview,:root[data-theme="dark"] .pdf-preview canvas{background:#292a26}
 :root[data-theme="dark"] .download{color:#151614}
 @media(max-width:760px){.theme-toggle{margin-left:auto}}
