@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f2ec">
+  <title>Add Text Watermark to Image Online | Fyloz</title>
+  <meta name="description" content="Add a text watermark to JPG, PNG, or WebP images in your browser. Customize text, color, opacity, size, and position, then download a copy.">
+  <link rel="canonical" href="https://olive-lighthouse-0589.de.deplexo.com/watermark-image/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Fyloz">
+  <meta property="og:title" content="Add a Text Watermark — Fyloz">
+  <meta property="og:description" content="Add a customizable text watermark locally in your browser.">
+  <meta property="og:url" content="https://olive-lighthouse-0589.de.deplexo.com/watermark-image/">
+  <meta name="twitter:card" content="summary">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Fyloz Text Watermark Tool","url":"https://olive-lighthouse-0589.de.deplexo.com/watermark-image/","applicationCategory":"MultimediaApplication","operatingSystem":"Any","description":"Add customizable text watermarks to images locally in a browser.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Fyloz home"><span aria-hidden="true">◆</span> fyloz</a>
+    <nav aria-label="Main navigation"><a href="/">Compress</a><a href="/resize-image/">Resize</a><a href="/convert-image/">Convert</a><a href="/edit-image/">Rotate / flip</a></nav>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">IMAGE TOOLS</p>
+      <h1>Make it <em>yours.</em></h1>
+      <p class="intro-copy">Add a text watermark to your image. Customize the wording, color, opacity, size, and position, then download a new copy.</p>
+    </section>
+    <section id="tool" class="workspace" aria-labelledby="tool-title">
+      <div class="work">
+        <h2 id="tool-title">Add a text watermark</h2>
+        <label class="drop" for="image">
+          <span class="upload-mark" aria-hidden="true">↑</span>
+          <strong>Choose an image</strong>
+          <span>or drop a file here</span>
+          <input type="file" id="image" accept="image/jpeg,image/png,image/webp">
+          <small>JPG, PNG or WebP · up to 20 MB</small>
+        </label>
+        <p id="message" class="status" role="status" aria-live="polite">Select an image to get started.</p>
+        <div id="download-result" class="result" hidden>
+          <div class="result-heading"><h3>Watermarked preview</h3><span id="result-format" class="savings"></span></div>
+          <img id="preview" class="preview" alt="Preview of the image with a text watermark">
+          <p id="result-info" class="result-info"></p>
+          <a id="download" class="download" href="#">Download watermarked image</a>
+        </div>
+      </div>
+      <aside class="settings">
+        <h2>Watermark settings</h2>
+        <label for="watermark-text">Watermark text</label>
+        <input id="watermark-text" class="text-setting" type="text" maxlength="80" value="© Your name" placeholder="Enter your text">
+        <label for="position">Position</label>
+        <select id="position" class="format-select">
+          <option value="bottom-right">Bottom right</option>
+          <option value="bottom-left">Bottom left</option>
+          <option value="center">Center</option>
+          <option value="top-left">Top left</option>
+          <option value="top-right">Top right</option>
+        </select>
+        <label for="color">Text color</label>
+        <input id="color" class="color-setting" type="color" value="#ffffff">
+        <label for="opacity">Opacity <span id="opacity-value">65%</span></label>
+        <input id="opacity" class="range-setting" type="range" min="10" max="100" value="65">
+        <label for="size">Text size <span id="size-value">5%</span></label>
+        <input id="size" class="range-setting" type="range" min="2" max="15" value="5">
+        <label for="format">Output format</label>
+        <select id="format" class="format-select">
+          <option value="image/jpeg">JPG</option>
+          <option value="image/png">PNG</option>
+          <option value="image/webp">WebP</option>
+        </select>
+        <button class="primary" id="go" type="button" disabled>Prepare download <span aria-hidden="true">↗</span></button>
+        <p class="privacy"><span aria-hidden="true">◎</span> <strong>Private by design.</strong> Watermarking happens in your browser; the image is not uploaded.</p>
+      </aside>
+    </section>
+    <section id="how" class="section">
+      <p class="eyebrow">HOW IT WORKS</p><h2>Protect your previews in three steps.</h2>
+      <div class="steps">
+        <article><b>01 — CHOOSE</b><h3>Load your image</h3><p>Use a JPG, PNG, or WebP image stored on your device.</p></article>
+        <article><b>02 — CUSTOMIZE</b><h3>Set the watermark</h3><p>Change the text, color, opacity, size, and placement to suit your image.</p></article>
+        <article><b>03 — SAVE</b><h3>Download a copy</h3><p>Review the preview and download your watermarked image.</p></article>
+      </div>
+    </section>
+    <section class="section faq-section">
+      <p class="eyebrow">GOOD TO KNOW</p><h2>Watermark FAQs</h2>
+      <div class="faq-list">
+        <article><h3>Does this change my original file?</h3><p>No. Fyloz creates a separate output file and does not modify the original.</p></article>
+        <article><h3>Can I move the watermark?</h3><p>Choose one of five positions: four corners or the center. Preview the result before downloading.</p></article>
+        <article><h3>Can I keep transparency?</h3><p>PNG and WebP can preserve transparent areas. JPG has no transparency and uses a white background where needed.</p></article>
+        <article><h3>Is my image uploaded?</h3><p>No. The browser applies the watermark locally. The image is not uploaded to the Fyloz application server.</p></article>
+      </div>
+    </section>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"Does this change my original file?","acceptedAnswer":{"@type":"Answer","text":"No. Fyloz creates a separate output file and does not modify the original."}},
+      {"@type":"Question","name":"Can I move the watermark?","acceptedAnswer":{"@type":"Answer","text":"Choose one of five positions: four corners or the center. Preview the result before downloading."}},
+      {"@type":"Question","name":"Can I keep transparency?","acceptedAnswer":{"@type":"Answer","text":"PNG and WebP can preserve transparent areas. JPG has no transparency and uses a white background where needed."}},
+      {"@type":"Question","name":"Is my image uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. The browser applies the watermark locally. The image is not uploaded to the Fyloz application server."}}
+    ]}
+    </script>
+  </main>
+  <footer class="footer"><span>© Fyloz</span><nav aria-label="Footer navigation"><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../contact.html">Contact</a></nav><span>Useful tools, without the fuss.</span></footer>
+  <script src="watermark.js"></script>
+</body>
+</html>
