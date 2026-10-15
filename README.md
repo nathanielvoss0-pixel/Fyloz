@@ -38,6 +38,12 @@ Fyloz is a lightweight, browser-based collection of image tools. Image processin
 - Preview and export JPG, PNG, or WebP locally in the browser.
 - Limits images to 12,000 px per side and 20 million pixels total.
 
+### 6. PDF tools
+- URL: `/pdf-tools/`
+- Merge multiple PDFs, extract pages, delete pages, split by page ranges, rotate pages, re-save a PDF, convert images to PDF, and export PDF pages as PNG.
+- Uses PDF-Lib and PDF.js loaded from public CDNs; selected document files are processed in the browser.
+- PDF re-saving does not guarantee a smaller file. Page rendering is limited to 100 pages per run.
+
 ## Static deployment
 
 The site is served by BusyBox `httpd` inside Docker. Deplexo builds from the repository's `Dockerfile` and serves port 8080. Keep the `COPY` entries in the Dockerfile aligned with public pages and SEO files.
@@ -56,7 +62,7 @@ The site is served by BusyBox `httpd` inside Docker. Deplexo builds from the rep
 
 ## Before public launch
 
-- Test all five tools in desktop and mobile browsers with JPG, PNG transparency, WebP, very large images, malformed files, unsupported formats, and extreme dimensions.
+- Test all six tool pages, including the PDF toolkit in desktop and mobile browsers with JPG, PNG transparency, WebP, very large images, malformed files, unsupported formats, and extreme dimensions.
 - Verify that downloaded files open and that the resize tool preserves aspect ratio when selected.
 - Check keyboard navigation, status messages, and small-screen layout.
 - Confirm the final production domain before using canonical URLs or submitting the sitemap.
