@@ -22,7 +22,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .work{border-right:1px solid var(--line)}
 h2{font-size:23px;line-height:1.2;letter-spacing:-.7px;margin:0 0 22px}
 .drop{min-height:220px;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;border:1px dashed #aaa99f;background:#fcfbf7;cursor:pointer;transition:border-color .15s,background .15s}
-.drop:hover,.drop:focus-within{border-color:var(--accent);background:#fff8f4}
+.drop:hover,.drop:focus-within,.drop.drag-over{border-color:var(--accent);background:#fff0e9;outline:2px solid var(--accent);outline-offset:2px}
 .upload-mark{font-size:28px;color:var(--accent);line-height:1}
 .drop strong{font-size:18px}
 .drop span:not(.upload-mark){color:var(--muted);font-size:14px}
