@@ -5,7 +5,7 @@ Fyloz is a lightweight, browser-based collection of image tools. Image processin
 ## Current tools
 
 ### 1. Compress image
-- Accepts JPG, PNG, and WebP images up to 20 MB.
+- Accepts JPG, PNG, and WebP images up to 20 MB through the file picker or drag and drop.
 - Lets the user set a target output size in KB, with presets for 50, 100, 200, and 500 KB.
 - Tries lower JPEG quality and, when needed, smaller dimensions.
 - Shows a preview, original/output sizes, and a download link.
@@ -15,6 +15,7 @@ Fyloz is a lightweight, browser-based collection of image tools. Image processin
 - URL: `/resize-image/`
 - Accepts JPG, PNG, and WebP images up to 20 MB.
 - Sets exact width and height in pixels, with an option to preserve aspect ratio.
+- Supports drag-and-drop file selection.
 - Exports JPG, PNG, or WebP and provides a preview and download.
 - Caps output dimensions at 12,000 px per side and 40 million pixels total to reduce browser-memory risk.
 
@@ -27,7 +28,9 @@ The site is served by BusyBox `httpd` inside Docker. Deplexo builds from the rep
 - `index.html`, `styles.css`, `app.js`: homepage and image compression tool.
 - `resize-image/index.html`, `resize-image/resize.js`: image resize tool.
 - `privacy.html`, `terms.html`, `contact.html`: policy and contact pages.
-- `sitemap.xml`, `robots.txt`: initial crawl configuration.
+- `sitemap.xml`, `robots.txt`: crawl configuration.
+- `favicon.svg`: lightweight browser tab icon.
+- Public pages include canonical URLs and social sharing metadata; tool pages also include structured data.
 
 ## Before public launch
 
