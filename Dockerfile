@@ -2,6 +2,7 @@ FROM busybox:1.36
 
 WORKDIR /www
 COPY index.html /www/index.html
+COPY favicon.svg /www/favicon.svg
 COPY styles.css /www/styles.css
 COPY app.js /www/app.js
 COPY privacy.html /www/privacy.html
