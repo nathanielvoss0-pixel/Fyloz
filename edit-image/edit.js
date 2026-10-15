@@ -37,22 +37,26 @@ function readImage(file) {
     img.src = url;
   });
 }
-function getCanvas() {
+function getCanvas(type) {
   const swapped = Math.abs(angle) % 180 === 90;
-  const width = sourceImage.naturalWidth;
-  const height = sourceImage.naturalHeight;
-  const outWidth = swapped ? height : width;
-  const outHeight = swapped ? width : height;
-  if (outWidth * outHeight > 20000000) throw new Error('This image is too large to edit reliably in the browser.');
+  const sourceWidth = sourceImage.naturalWidth;
+  const sourceHeight = sourceImage.naturalHeight;
+  const width = swapped ? sourceHeight : sourceWidth;
+  const height = swapped ? sourceWidth : sourceHeight;
+  if (width * height > 20000000) throw new Error('This image is too large to edit reliably in the browser.');
   const canvas = document.createElement('canvas');
-  canvas.width = outWidth;
-  canvas.height = outHeight;
+  canvas.width = width;
+  canvas.height = height;
   const ctx = canvas.getContext('2d');
   if (!ctx) throw new Error('Your browser could not prepare this image.');
-  ctx.translate(outWidth / 2, outHeight / 2);
+  if (type === 'image/jpeg') {
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, width, height);
+  }
+  ctx.translate(width / 2, height / 2);
   ctx.rotate(angle * Math.PI / 180);
   ctx.scale(flipX, flipY);
-  ctx.drawImage(sourceImage, -width / 2, -height / 2, width, height);
+  ctx.drawImage(sourceImage, -sourceWidth / 2, -sourceHeight / 2, sourceWidth, sourceHeight);
   return canvas;
 }
 function canvasToBlob(canvas, type) {
@@ -68,22 +72,13 @@ async function renderPreview() {
   if (!sourceImage) return;
   const current = ++renderId;
   clearResult();
+  let canvas;
   try {
-    const canvas = getCanvas();
+    canvas = getCanvas(formatInput.value);
+    const width = canvas.width;
+    const height = canvas.height;
     const type = formatInput.value;
-    if (type === 'image/jpeg') {
-      const ctx = canvas.getContext('2d');
-      const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      const white = document.createElement('canvas');
-      white.width = canvas.width; white.height = canvas.height;
-      const wctx = white.getContext('2d');
-      wctx.fillStyle = '#fff'; wctx.fillRect(0, 0, white.width, white.height);
-      wctx.putImageData(pixels, 0, 0);
-      canvas.width = white.width; canvas.height = white.height;
-      canvas.getContext('2d').drawImage(white, 0, 0);
-    }
     const blob = await canvasToBlob(canvas, type);
-    canvas.width = 1; canvas.height = 1;
     if (current !== renderId) return;
     if (outputUrl) URL.revokeObjectURL(outputUrl);
     outputUrl = URL.createObjectURL(blob);
@@ -91,16 +86,16 @@ async function renderPreview() {
     downloadLink.href = outputUrl;
     const ext = type === 'image/jpeg' ? 'jpg' : type === 'image/png' ? 'png' : 'webp';
     downloadLink.download = (selectedFile.name.replace(/\.[^.]+$/, '') || 'image') + '-edited.' + ext;
-    resultInfo.textContent = canvasDimensionsText(blob.size) + ' · original ' + sourceImage.naturalWidth + ' × ' + sourceImage.naturalHeight + ' px';
+    resultInfo.textContent = width + ' × ' + height + ' px · ' + (blob.size / 1024).toFixed(1) + ' KB · original ' +
+      sourceImage.naturalWidth + ' × ' + sourceImage.naturalHeight + ' px';
     resultFormat.textContent = ext.toUpperCase();
     resultBox.hidden = false;
     say('Preview updated. Download when you are happy with the result.');
   } catch (error) {
-    say(error.message || 'Could not preview these edits.', true);
+    if (current === renderId) say(error.message || 'Could not preview these edits.', true);
+  } finally {
+    if (canvas) { canvas.width = 1; canvas.height = 1; }
   }
-}
-function canvasDimensionsText(bytes) {
-  return (bytes / 1024).toFixed(bytes < 10240 ? 2 : 1) + ' KB';
 }
 function changeTransform(change) {
   if (!sourceImage) { say('Choose an image first.', true); fileInput.focus(); return; }
@@ -141,7 +136,7 @@ fileInput.addEventListener('change', async () => {
     selectedFile = null; fileInput.value = ''; go.disabled = true;
     say('This image is over 20 MB. Choose a smaller file.', true); return;
   }
-  go.disabled = true; say('Reading image…');
+  go.disabled = true; fileInput.disabled = true; say('Reading image…');
   try {
     const image = await readImage(selectedFile);
     if (current !== renderId) return;
@@ -149,13 +144,15 @@ fileInput.addEventListener('change', async () => {
       throw new Error('This image has more than 20 million pixels. Resize it first, then edit the smaller copy.');
     }
     sourceImage = image;
-    go.disabled = false;
     say(selectedFile.name + ' · ' + image.naturalWidth + ' × ' + image.naturalHeight + ' px · Ready to edit.');
     await renderPreview();
+    if (current === renderId) go.disabled = false;
   } catch (error) {
     if (current !== renderId) return;
     sourceImage = null; selectedFile = null; go.disabled = true;
     say(error.message || 'Could not read this image.', true);
+  } finally {
+    if (current === renderId) fileInput.disabled = false;
   }
 });
 go.addEventListener('click', () => {
