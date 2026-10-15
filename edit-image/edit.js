@@ -14,7 +14,8 @@ let outputUrl = null;
 let angle = 0;
 let flipX = 1;
 let flipY = 1;
-let renderId = 0;\nlet fileReadId = 0;
+let renderId = 0;
+let fileReadId = 0;
 const allowed = ['image/jpeg', 'image/png', 'image/webp'];
 
 function say(text, error = false) {
