@@ -116,6 +116,7 @@ go.addEventListener('click', async () => {
   }
 
   clearResult();
+  fileInput.disabled = true;
   go.disabled = true;
   go.textContent = 'Resizing image…';
   say('Resizing in your browser. Keep this tab open…');
@@ -150,6 +151,7 @@ go.addEventListener('click', async () => {
   } catch (error) {
     say(error.message || 'Something went wrong. Please try another image.', true);
   } finally {
+    fileInput.disabled = false;
     go.disabled = false;
     go.innerHTML = 'Resize image <span aria-hidden="true">↗</span>';
   }
