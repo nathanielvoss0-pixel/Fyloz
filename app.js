@@ -155,6 +155,7 @@ go.addEventListener('click', async () => {
   }
 
   clearResult();
+  fileInput.disabled = true;
   go.disabled = true;
   go.textContent = 'Preparing image…';
   say('Compressing in your browser. Keep this tab open…');
@@ -179,6 +180,7 @@ go.addEventListener('click', async () => {
   } catch (error) {
     say(error.message || 'Something went wrong. Please try another image.', true);
   } finally {
+    fileInput.disabled = false;
     go.disabled = false;
     go.innerHTML = 'Prepare image <span aria-hidden="true">↗</span>';
   }
