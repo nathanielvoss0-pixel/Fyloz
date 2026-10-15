@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f2ec">
+<title>Free Online PDF Tools — Merge, Split, Rotate & Convert | Fyloz</title>
+<meta name="description" content="Free browser-based PDF tools: merge PDFs, extract or delete pages, split by page ranges, rotate pages, convert images to PDF, and export PDF pages as images.">
+<link rel="canonical" href="https://olive-lighthouse-0589.de.deplexo.com/pdf-tools/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Fyloz"><meta property="og:title" content="Free Online PDF Tools — Fyloz"><meta property="og:description" content="Merge, split, rotate, and convert PDFs in your browser."><meta property="og:url" content="https://olive-lighthouse-0589.de.deplexo.com/pdf-tools/"><meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fyloz PDF Tools","url":"https://olive-lighthouse-0589.de.deplexo.com/pdf-tools/","applicationCategory":"MultimediaApplication","operatingSystem":"Any","description":"Free browser-based PDF merging, page extraction, page deletion, rotation and image conversion tools.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header"><a class="brand" href="/" aria-label="Fyloz home"><span aria-hidden="true">◆</span> fyloz</a><nav aria-label="Main navigation"><a href="/">Compress</a><a href="/resize-image/">Resize</a><a href="/convert-image/">Convert</a><a href="/edit-image/">Edit</a><a href="/watermark-image/">Watermark</a><a href="#pdf-tool">PDF tools</a></nav></header>
+<main>
+<section class="intro"><p class="eyebrow">DOCUMENT TOOLKIT</p><h1>Your PDFs,<br><em>your rules.</em></h1><p class="intro-copy">Merge files, extract pages, remove pages, rotate documents, or convert between PDF and images. Processing runs in your browser.</p></section>
+<section id="pdf-tool" class="pdf-workspace" aria-labelledby="pdf-title">
+<div class="pdf-main"><h2 id="pdf-title">Choose a PDF tool</h2>
+<label for="operation">What do you want to do?</label><select id="operation" class="format-select">
+<option value="merge">Merge PDF files</option><option value="extract">Extract selected pages</option><option value="delete">Delete selected pages</option><option value="split">Split PDF by page ranges</option><option value="rotate">Rotate pages</option><option value="images-to-pdf">Convert images to PDF</option><option value="pdf-to-images">Convert PDF pages to images</option><option value="save">Re-save / optimize PDF structure</option>
+</select>
+<div id="file-label-wrap"><label id="file-label" for="files">Choose PDF files</label><input id="files" type="file" accept="application/pdf" multiple></div>
+<div id="range-wrap"><label for="pages">Page numbers or ranges</label><input id="pages" class="text-setting" type="text" placeholder="Example: 1, 3-5"><p class="muted" id="range-help">Use page numbers starting from 1, separated by commas. Example: 1, 3-5.</p></div>
+<div id="rotation-wrap"><label for="rotation">Rotation</label><select id="rotation" class="format-select"><option value="90">90° clockwise</option><option value="180">180°</option><option value="270">270° clockwise</option></select></div>
+<div id="image-wrap" hidden><label id="image-label" for="images">Choose images</label><input id="images" type="file" accept="image/jpeg,image/png,image/webp" multiple><p class="muted">Each image becomes a page, scaled to fit. JPG, PNG, and WebP supported.</p></div>
+<button class="primary" id="run" type="button">Process files <span aria-hidden="true">↗</span></button>
+<p class="status" id="status" role="status" aria-live="polite">Choose a tool and select your files to begin.</p>
+<div id="results" class="pdf-results" hidden><h3 id="result-title">Your files are ready</h3><div id="result-list"></div></div>
+</div>
+<aside class="pdf-sidebar"><h2>PDF toolkit</h2>
+<button type="button" class="pdf-choice selected" data-operation="merge"><span>01</span><strong>Merge PDFs</strong><small>Combine documents in order</small></button>
+<button type="button" class="pdf-choice" data-operation="extract"><span>02</span><strong>Extract pages</strong><small>Keep only the pages you need</small></button>
+<button type="button" class="pdf-choice" data-operation="delete"><span>03</span><strong>Delete pages</strong><small>Remove unwanted pages</small></button>
+<button type="button" class="pdf-choice" data-operation="split"><span>04</span><strong>Split by ranges</strong><small>Create a separate file per range</small></button>
+<button type="button" class="pdf-choice" data-operation="rotate"><span>05</span><strong>Rotate PDF</strong><small>Fix sideways pages</small></button>
+<button type="button" class="pdf-choice" data-operation="images-to-pdf"><span>06</span><strong>Images to PDF</strong><small>Turn photos into a document</small></button>
+<button type="button" class="pdf-choice" data-operation="pdf-to-images"><span>07</span><strong>PDF to images</strong><small>Export pages as PNG files</small></button>
+<button type="button" class="pdf-choice" data-operation="save"><span>08</span><strong>Re-save PDF</strong><small>Rebuild the PDF structure</small></button>
+<p class="privacy"><span aria-hidden="true">◎</span> <strong>Local processing.</strong> Files are processed in your browser and are not uploaded to the Fyloz application server.</p>
+</aside>
+</section>
+<section class="section"><p class="eyebrow">HOW IT WORKS</p><h2>Simple document tasks.</h2><div class="steps"><article><b>01 — SELECT</b><h3>Choose a tool</h3><p>Select the PDF action that matches your task and choose the files from your device.</p></article><article><b>02 — PROCESS</b><h3>Set the pages</h3><p>For page operations, enter page numbers or ranges. Files stay in your browser.</p></article><article><b>03 — SAVE</b><h3>Download results</h3><p>Download each finished PDF or image. Check the output before deleting your originals.</p></article></div></section>
+<section class="section faq-section"><p class="eyebrow">FAQ</p><h2>PDF tool questions</h2><div class="faq-list"><article><h3>Are my documents uploaded?</h3><p>No. The tools process your selected files in your browser. External library scripts are loaded from public CDNs, but the document files are not sent to those CDNs by these tools.</p></article><article><h3>Will PDF optimization always make a smaller file?</h3><p>No. Re-saving may reduce some structural overhead, but the result can also be the same size or larger. It does not guarantee image recompression.</p></article><article><h3>Can I split a PDF into several files?</h3><p>Yes. Choose Split by page ranges and enter ranges separated by semicolons, such as 1-3; 4-6; 7-9.</p></article><article><h3>Does it work for every PDF?</h3><p>Some encrypted, damaged, unusually complex, or very large PDFs may not be supported. If a file fails, try another PDF reader or export a fresh copy.</p></article></div></section>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are my documents uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. The tools process your selected files in your browser. External library scripts are loaded from public CDNs, but the document files are not sent to those CDNs by these tools."}},{"@type":"Question","name":"Will PDF optimization always make a smaller file?","acceptedAnswer":{"@type":"Answer","text":"No. Re-saving may reduce some structural overhead, but the result can also be the same size or larger. It does not guarantee image recompression."}},{"@type":"Question","name":"Can I split a PDF into several files?","acceptedAnswer":{"@type":"Answer","text":"Yes. Choose Split by page ranges and enter ranges separated by semicolons, such as 1-3; 4-6; 7-9."}},{"@type":"Question","name":"Does it work for every PDF?","acceptedAnswer":{"@type":"Answer","text":"Some encrypted, damaged, unusually complex, or very large PDFs may not be supported. If a file fails, try another PDF reader or export a fresh copy."}}]}</script>
+</main>
+<footer class="footer"><span>© Fyloz</span><nav aria-label="Footer navigation"><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../contact.html">Contact</a></nav><span>Useful tools, without the fuss.</span></footer>
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="pdf-tools.js"></script>
+</body></html>
