@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://olive-lighthouse-0589.de.deplexo.com/sitemap.xml
