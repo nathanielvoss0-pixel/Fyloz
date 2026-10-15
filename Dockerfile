@@ -4,6 +4,7 @@ WORKDIR /www
 COPY index.html /www/index.html
 COPY favicon.svg /www/favicon.svg
 COPY styles.css /www/styles.css
+COPY theme.js /www/theme.js
 COPY app.js /www/app.js
 COPY privacy.html /www/privacy.html
 COPY terms.html /www/terms.html
