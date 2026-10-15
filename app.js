@@ -11,6 +11,27 @@ const savingsLabel = $('savings');
 let selectedFile = null;
 let outputUrl = null;
 
+const dropArea = document.querySelector('.drop');
+dropArea.addEventListener('dragover', event => {
+  event.preventDefault();
+  if (!fileInput.disabled) dropArea.classList.add('drag-over');
+});
+dropArea.addEventListener('dragleave', () => dropArea.classList.remove('drag-over'));
+dropArea.addEventListener('drop', event => {
+  event.preventDefault();
+  dropArea.classList.remove('drag-over');
+  if (fileInput.disabled) return;
+  const file = event.dataTransfer && event.dataTransfer.files[0];
+  if (!file) return;
+  try {
+    const transfer = new DataTransfer();
+    transfer.items.add(file);
+    fileInput.files = transfer.files;
+    fileInput.dispatchEvent(new Event('change', { bubbles: true }));
+  } catch {
+    say('Use the file picker to select your image.', true);
+  }
+});
 function say(text, error = false) {
   message.textContent = text;
   message.style.color = error ? '#a12c19' : '';
