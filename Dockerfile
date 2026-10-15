@@ -13,6 +13,7 @@ COPY robots.txt /www/robots.txt
 COPY resize-image /www/resize-image
 COPY convert-image /www/convert-image
 COPY edit-image /www/edit-image
+COPY watermark-image /www/watermark-image
 
 EXPOSE 8080
 CMD ["httpd", "-f", "-p", "8080", "-h", "/www"]
