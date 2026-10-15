@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f2ec">
+  <title>Resize Image Online — Change Image Dimensions | Fyloz</title>
+  <meta name="description" content="Resize JPG, PNG, and WebP images to exact pixel dimensions in your browser. Keep the aspect ratio, preview the result, and download your resized image privately.">
+  <link rel="canonical" href="https://olive-lighthouse-0589.de.deplexo.com/resize-image/">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Fyloz home"><span aria-hidden="true">◆</span> fyloz</a>
+    <nav aria-label="Main navigation"><a href="/">Compress image</a><a href="#how">How it works</a><a href="#faq">FAQ</a></nav>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">IMAGE TOOLS</p>
+      <h1>Resize your image <em>to fit.</em></h1>
+      <p class="intro-copy">Set the exact pixel dimensions you need. Keep the original proportions or choose a new width and height. Your image stays in this browser.</p>
+    </section>
+    <section id="tool" class="workspace" aria-labelledby="tool-title">
+      <div class="work">
+        <h2 id="tool-title">Resize an image</h2>
+        <label class="drop" for="image">
+          <span class="upload-mark" aria-hidden="true">↑</span>
+          <strong>Choose an image</strong>
+          <span>or use the file picker below</span>
+          <input type="file" id="image" accept="image/jpeg,image/png,image/webp">
+          <small>JPG, PNG or WebP · up to 20 MB</small>
+        </label>
+        <p id="message" class="status" role="status" aria-live="polite">Select an image to get started.</p>
+        <div id="download-result" class="result" hidden>
+          <div class="result-heading"><h3>Your resized image</h3><span id="result-format" class="savings"></span></div>
+          <img id="preview" class="preview" alt="Preview of the resized image">
+          <p id="result-info" class="result-info"></p>
+          <a id="download" class="download" href="#">Download resized image</a>
+        </div>
+      </div>
+      <aside class="settings">
+        <h2>Choose dimensions</h2>
+        <p class="muted">Enter the output width and height in pixels.</p>
+        <div class="dimension-fields">
+          <div><label for="width">Width</label><div class="limit-field"><input id="width" type="number" min="1" max="12000" inputmode="numeric" placeholder="e.g. 800"><span>px</span></div></div>
+          <div><label for="height">Height</label><div class="limit-field"><input id="height" type="number" min="1" max="12000" inputmode="numeric" placeholder="e.g. 600"><span>px</span></div></div>
+        </div>
+        <label class="check-row"><input id="keep-ratio" type="checkbox" checked> Keep aspect ratio</label>
+        <label for="format">Output format</label>
+        <select id="format" class="format-select">
+          <option value="image/jpeg">JPG</option>
+          <option value="image/png">PNG</option>
+          <option value="image/webp">WebP</option>
+        </select>
+        <button class="primary" id="go" type="button">Resize image <span aria-hidden="true">↗</span></button>
+        <p class="privacy"><span aria-hidden="true">◎</span> <strong>Private by design.</strong> Your image is resized in this browser and is not uploaded to a server.</p>
+      </aside>
+    </section>
+    <section id="how" class="section">
+      <p class="eyebrow">HOW IT WORKS</p><h2>Exact dimensions, in three steps.</h2>
+      <div class="steps">
+        <article><b>01 — CHOOSE</b><h3>Pick your image</h3><p>Select a JPG, PNG or WebP image from your device.</p></article>
+        <article><b>02 — SET SIZE</b><h3>Enter pixel dimensions</h3><p>Keep proportions to avoid stretching, or turn the option off for a custom shape.</p></article>
+        <article><b>03 — SAVE</b><h3>Preview and download</h3><p>Check the new dimensions and output format before saving your image.</p></article>
+      </div>
+    </section>
+    <section id="faq" class="section faq-section">
+      <p class="eyebrow">GOOD TO KNOW</p><h2>Before you resize</h2>
+      <div class="faq-list">
+        <article><h3>Does my image leave my device?</h3><p>No. The browser processes the image locally; the file is not uploaded to Fyloz.</p></article>
+        <article><h3>What does aspect ratio mean?</h3><p>It is the relationship between width and height. Keeping it checked preserves the image's proportions when you change one dimension.</p></article>
+        <article><h3>Can I make an image larger?</h3><p>Yes, but enlarging an image cannot restore detail that was not in the original and may make it look blurry.</p></article>
+        <article><h3>Which output format should I choose?</h3><p>JPG is useful for photos, PNG supports transparency, and WebP can offer smaller files. JPG output fills transparent areas with white.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><span>© Fyloz</span><nav aria-label="Footer navigation"><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../contact.html">Contact</a></nav><span>Useful tools, without the fuss.</span></footer>
+  <script src="resize.js"></script>
+</body>
+</html>
