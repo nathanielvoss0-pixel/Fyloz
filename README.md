@@ -40,7 +40,7 @@ Fyloz is a lightweight, browser-based collection of image tools. Image processin
 
 ### 6. PDF tools
 - URL: `/pdf-tools/`
-- Merge multiple PDFs, extract pages, delete pages, split by page ranges, rotate pages, re-save a PDF, convert images to PDF, and export PDF pages as PNG.
+- Merge multiple PDFs, extract pages, delete pages, split by page ranges, reorder pages, rotate pages, add page numbers or text watermarks, extract selectable text to TXT, re-save a PDF, convert images to PDF, and export PDF pages as PNG/JPG/WebP.
 - Uses PDF-Lib and PDF.js loaded from public CDNs; selected document files are processed in the browser.
 - PDF re-saving does not guarantee a smaller file. Page rendering is limited to 100 pages per run.
 
