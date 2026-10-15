@@ -17,7 +17,20 @@ Fyloz is a lightweight, browser-based collection of image tools. Image processin
 - Sets exact width and height in pixels, with an option to preserve aspect ratio.
 - Supports drag-and-drop file selection.
 - Exports JPG, PNG, or WebP and provides a preview and download.
-- Caps output dimensions at 12,000 px per side and 20 million pixels total to reduce browser-memory risk.\n\n### 3. Convert image\n- URL: `/convert-image/`\n- Converts between JPG, PNG, and WebP locally in the browser.\n- Includes an adjustable quality control for JPG and WebP.\n- Preserves transparency in PNG and WebP; fills transparent areas with white for JPG.\n- Limits conversion output to 20 million pixels to reduce browser-memory risk.
+- Caps output dimensions at 12,000 px per side and 20 million pixels total to reduce browser-memory risk.
+
+### 3. Convert image
+- URL: `/convert-image/`
+- Converts between JPG, PNG, and WebP locally in the browser.
+- Includes an adjustable quality control for JPG and WebP.
+- Preserves transparency in PNG and WebP; fills transparent areas with white for JPG.
+- Limits conversion output to 20 million pixels to reduce browser-memory risk.
+
+### 4. Rotate and flip image
+- URL: `/edit-image/`
+- Rotate left or right in 90-degree steps and flip horizontally or vertically.
+- Preview changes and export a new JPG, PNG, or WebP copy.
+- Keeps the original file unchanged and caps input/output at 20 million pixels.
 
 ## Static deployment
 
@@ -26,7 +39,9 @@ The site is served by BusyBox `httpd` inside Docker. Deplexo builds from the rep
 ## Files
 
 - `index.html`, `styles.css`, `app.js`: homepage and image compression tool.
-- `resize-image/index.html`, `resize-image/resize.js`: image resize tool.\n- `convert-image/index.html`, `convert-image/convert.js`: image format converter.
+- `resize-image/index.html`, `resize-image/resize.js`: image resize tool.
+- `convert-image/index.html`, `convert-image/convert.js`: image format converter.
+- `edit-image/index.html`, `edit-image/edit.js`: rotate and flip tool.
 - `privacy.html`, `terms.html`, `contact.html`: policy and contact pages.
 - `sitemap.xml`, `robots.txt`: crawl configuration.
 - `favicon.svg`: lightweight browser tab icon.
@@ -34,7 +49,7 @@ The site is served by BusyBox `httpd` inside Docker. Deplexo builds from the rep
 
 ## Before public launch
 
-- Test all three tools in desktop and mobile browsers with JPG, PNG transparency, WebP, very large images, malformed files, unsupported formats, and extreme dimensions.
+- Test all four tools in desktop and mobile browsers with JPG, PNG transparency, WebP, very large images, malformed files, unsupported formats, and extreme dimensions.
 - Verify that downloaded files open and that the resize tool preserves aspect ratio when selected.
 - Check keyboard navigation, status messages, and small-screen layout.
 - Confirm the final production domain before using canonical URLs or submitting the sitemap.
