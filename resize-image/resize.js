@@ -15,6 +15,7 @@ let selectedFile = null;
 let sourceImage = null;
 let outputUrl = null;
 let sourceRatio = 1;
+let imageReadId = 0;
 
 const dropArea = document.querySelector('.drop');
 dropArea.addEventListener('dragover', event => {
@@ -79,6 +80,7 @@ keepRatio.addEventListener('change', () => {
 });
 
 fileInput.addEventListener('change', async () => {
+  const currentReadId = ++imageReadId;
   clearResult();
   selectedFile = fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
   sourceImage = null;
@@ -95,17 +97,23 @@ fileInput.addEventListener('change', async () => {
     say('This image is over 20 MB. Choose a smaller file.', true);
     return;
   }
+  go.disabled = true;
   say('Reading image dimensions…');
   try {
-    sourceImage = await readImage(selectedFile);
+    const image = await readImage(selectedFile);
+    if (currentReadId !== imageReadId) return;
+    sourceImage = image;
     sourceRatio = sourceImage.naturalWidth / sourceImage.naturalHeight;
     widthInput.value = sourceImage.naturalWidth;
     heightInput.value = sourceImage.naturalHeight;
     say(selectedFile.name + ' · ' + sourceImage.naturalWidth + ' × ' + sourceImage.naturalHeight + ' px · Ready to resize.');
   } catch (error) {
+    if (currentReadId !== imageReadId) return;
     selectedFile = null;
     sourceImage = null;
     say(error.message || 'Could not read this image.', true);
+  } finally {
+    if (currentReadId === imageReadId) go.disabled = false;
   }
 });
 
@@ -131,8 +139,8 @@ go.addEventListener('click', async () => {
     widthInput.focus();
     return;
   }
-  if (width * height > 40000000) {
-    say('That size is too large for a reliable browser export. Choose dimensions with no more than 40 million pixels.', true);
+  if (width * height > 20000000) {
+    say('That size is too large for a reliable browser export. Choose dimensions with no more than 20 million pixels.', true);
     return;
   }
 
