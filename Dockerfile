@@ -15,7 +15,8 @@ COPY resize-image /www/resize-image
 COPY convert-image /www/convert-image
 COPY edit-image /www/edit-image
 COPY watermark-image /www/watermark-image
-
+COPY compress-image-to-200kb /www/compress-image-to-200kb
+COPY guides /www/guides
 COPY pdf-tools /www/pdf-tools
 
 EXPOSE 8080
