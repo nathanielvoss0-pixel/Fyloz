@@ -54,6 +54,9 @@ function setLimit(value) {
     button.setAttribute('aria-pressed', String(active));
   });
 }
+
+const requestedKB = Number(new URLSearchParams(window.location.search).get('kb'));
+if ([50, 100, 200, 500].includes(requestedKB)) setLimit(requestedKB);
 document.querySelectorAll('[data-kb]').forEach(button => {
   button.setAttribute('aria-pressed', String(button.classList.contains('selected')));
   button.addEventListener('click', () => setLimit(button.dataset.kb));
