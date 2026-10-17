@@ -1,4 +1,5 @@
 const $ = id => document.getElementById(id);
+const localize = text => window.FylozI18n ? window.FylozI18n.translate(text) : text;
 const fileInput = $('image');
 const message = $('message');
 const go = $('go');
@@ -17,7 +18,7 @@ let imageReadId = 0;
 const supportedTypes = ['image/jpeg', 'image/png', 'image/webp'];
 
 function say(text, error = false) {
-  message.textContent = text;
+  message.textContent = localize(text);
   message.style.color = error ? '#a12c19' : '';
 }
 function clearResult() {
@@ -131,7 +132,7 @@ go.addEventListener('click', async () => {
   clearResult();
   fileInput.disabled = true;
   go.disabled = true;
-  go.textContent = 'Converting image…';
+  go.textContent = localize('Converting image…');
   say('Converting in your browser. Keep this tab open…');
   let canvas;
   try {
@@ -162,8 +163,8 @@ go.addEventListener('click', async () => {
     preview.src = outputUrl;
     downloadLink.href = outputUrl;
     downloadLink.download = (fileAtStart.name.replace(/\.[^.]+$/, '') || 'image') + '-fyloz.' + extension;
-    resultInfo.textContent = formatKB(fileAtStart.size) + ' original → ' + formatKB(blob.size) +
-      ' converted · ' + width + ' × ' + height + ' px · ' + extension.toUpperCase();
+    resultInfo.textContent = localize(formatKB(fileAtStart.size) + ' original → ' + formatKB(blob.size) +
+      ' converted · ' + width + ' × ' + height + ' px · ' + extension.toUpperCase());
     resultFormat.textContent = extension.toUpperCase();
     resultBox.hidden = false;
     say('Done — your ' + extension.toUpperCase() + ' image is ready to download.');
@@ -174,7 +175,7 @@ go.addEventListener('click', async () => {
     if (canvas) { canvas.width = 1; canvas.height = 1; }
     fileInput.disabled = false;
     go.disabled = false;
-    go.innerHTML = 'Convert image <span aria-hidden="true">↗</span>';
+    go.innerHTML = localize('Convert image') + ' <span aria-hidden="true">↗</span>';
   }
 });
 updateQualityControl();

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VN2T9XXN6R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VN2T9XXN6R');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f2ec">
+  <title>Convertir des images JPG, PNG et WebP | Fyloz</title>
+  <meta name="description" content="Convertissez des images JPG, PNG et WebP dans votre navigateur. Choisissez le format et la qualité, puis prévisualisez le résultat.">
+  <link rel="canonical" href="https://fyloz.co99.win/fr/convert-image/">
+  <link rel="alternate" hreflang="en" href="https://fyloz.co99.win/convert-image/">
+  <link rel="alternate" hreflang="ar" href="https://fyloz.co99.win/ar/convert-image/">
+  <link rel="alternate" hreflang="fr" href="https://fyloz.co99.win/fr/convert-image/">
+  <link rel="alternate" hreflang="x-default" href="https://fyloz.co99.win/convert-image/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Fyloz">
+  <meta property="og:title" content="Convertir des images JPG, PNG et WebP | Fyloz">
+  <meta property="og:description" content="Convertissez des images JPG, PNG et WebP dans votre navigateur. Choisissez le format et la qualité, puis prévisualisez le résultat.">
+  <meta property="og:url" content="https://fyloz.co99.win/fr/convert-image/">
+  <meta name="twitter:card" content="summary">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Convertisseur d’images Fyloz","url":"https://fyloz.co99.win/fr/convert-image/","applicationCategory":"MultimediaApplication","operatingSystem":"Any","description":"Convertissez des images JPG, PNG et WebP dans votre navigateur. Choisissez le format et la qualité, puis prévisualisez le résultat.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":"fr"}</script>
+  <link rel="stylesheet" href="/styles.css?v=20261017-i18n">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/fr/" aria-label="Accueil Fyloz"><span aria-hidden="true">◆</span> fyloz</a>
+    <nav aria-label="Navigation principale"><a href="/fr/">Compresser</a><a href="/fr/resize-image/">Redimensionner</a><a href="/fr/edit-image/">Pivoter / retourner</a><a href="#how">Mode d’emploi</a><a href="/fr/watermark-image/">Filigrane</a><a href="/fr/pdf-tools/">Outils PDF</a></nav>
+  <button class="theme-toggle" type="button" aria-label="Changer le thème">☾ Mode sombre</button></header>
+<nav class="language-switcher" aria-label="Langue"><span>Langue:</span> <a href="/convert-image/" lang="en">English</a><span aria-hidden="true"> · </span><a href="/ar/convert-image/" lang="ar">العربية</a><span aria-hidden="true"> · </span><a href="/fr/convert-image/" lang="fr" aria-current="page">Français</a></nav>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">OUTILS IMAGE</p>
+      <h1>Convertir JPG, PNG et WebP <em>en ligne.</em></h1>
+      <p class="intro-copy">Convertissez du PNG en JPG, du JPG en WebP ou passez d’un format à l’autre. Choisissez le format et la qualité, prévisualisez le résultat et téléchargez une copie. Votre image reste sur votre appareil.</p>
+    </section>
+    <section id="tool" class="workspace" aria-labelledby="tool-title">
+      <div class="work">
+        <h2 id="tool-title">Convertir une image</h2>
+        <label class="drop" for="image">
+          <span class="upload-mark" aria-hidden="true">↑</span>
+          <strong>Choisir une image</strong>
+          <span>ou déposez un fichier ici</span>
+          <input type="file" id="image" accept="image/jpeg,image/png,image/webp">
+          <small>JPG, PNG ou WebP · jusqu’à 20 Mo</small>
+        </label>
+        <p id="message" class="status" role="status" aria-live="polite">Choisissez une image pour commencer.</p>
+        <div id="download-result" class="result" hidden>
+          <div class="result-heading"><h3>Votre image convertie</h3><span id="result-format" class="savings"></span></div>
+          <img id="preview" class="preview" alt="Aperçu de l’image convertie">
+          <p id="result-info" class="result-info"></p>
+          <a id="download" class="download" href="#">Télécharger l’image convertie</a>
+        </div>
+      </div>
+      <aside class="settings">
+        <h2>Paramètres de sortie</h2>
+        <label for="format">Convertir en</label>
+        <select id="format" class="format-select">
+          <option value="image/jpeg">JPG</option>
+          <option value="image/png">PNG</option>
+          <option value="image/webp">WebP</option>
+        </select>
+        <div id="quality-wrap" class="quality-wrap">
+          <label for="quality">Qualité de l’image <span id="quality-value">85%</span></label>
+          <input id="quality" type="range" min="10" max="100" value="85">
+          <p class="muted">Utilisée pour JPG et WebP. Une qualité supérieure produit généralement un fichier plus lourd.</p>
+        </div>
+        <button class="primary" id="go" type="button">Convertir l’image <span aria-hidden="true">↗</span></button>
+        <p class="privacy"><span aria-hidden="true">◎</span> <strong>La confidentialité est intégrée.</strong> La conversion se fait dans ce navigateur. Votre image n’est envoyée à aucun serveur.</p>
+        <p class="muted">Remarque : JPG ne gère pas la transparence. Les zones transparentes deviennent blanches lors de la conversion en JPG.</p>
+      </aside>
+    </section>
+    <section id="how" class="section">
+      <p class="eyebrow">MODE D’EMPLOI</p><h2>Convertissez en trois étapes.</h2>
+      <div class="steps">
+        <article><b>01 — CHOISIR</b><h3>Sélectionnez une image</h3><p>Choisissez un fichier JPG, PNG ou WebP sur votre appareil.</p></article>
+        <article><b>02 — CONVERTIR</b><h3>Choisissez un format de sortie</h3><p>Utilisez JPG pour les photos, PNG pour la transparence ou WebP pour le web moderne.</p></article>
+        <article><b>03 — ENREGISTRER</b><h3>Prévisualisez et téléchargez</h3><p>Vérifiez la taille et l’apparence du fichier avant le téléchargement.</p></article>
+      </div>
+    </section>
+    <section id="faq" class="section faq-section">
+      <p class="eyebrow">BON À SAVOIR</p><h2>Questions fréquentes sur les formats d’image</h2>
+      <div class="faq-list">
+        <article><h3>Mon image quitte-t-elle mon appareil ?</h3><p>Non. Le navigateur convertit l’image localement ; elle n’est pas envoyée au serveur de l’application Fyloz.</p></article>
+        <article><h3>Quel format utiliser ?</h3><p>JPG est largement compatible avec les photos, PNG prend en charge la transparence et WebP est conçu pour des images web légères. Le meilleur choix dépend du site destinataire.</p></article>
+        <article><h3>La conversion réduit-elle la qualité ?</h3><p>JPG et WebP peuvent perdre en qualité selon le réglage choisi. PNG est sans perte, mais le fichier peut être plus volumineux.</p></article>
+        <article><h3>JPG peut-il conserver la transparence ?</h3><p>Non. Lors de la conversion en JPG, Fyloz remplace les zones transparentes par du blanc.</p></article>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="format-guide-title">
+      <p class="eyebrow">CHOISIR LE BON FORMAT</p>
+      <h2 id="format-guide-title">JPG, PNG ou WebP</h2>
+      <div class="steps">
+        <article><b>JPG</b><h3>Photos et partage quotidien</h3><p>Bonne compatibilité et qualité réglable. La transparence n’est pas conservée.</p></article>
+        <article><b>PNG</b><h3>Images avec transparence</h3><p>Conserve la transparence et les données de l’image, mais peut produire des fichiers plus lourds pour les photos.</p></article>
+        <article><b>WEBP</b><h3>Sites web modernes</h3><p>Offre souvent des fichiers légers. Vérifiez que l’application ou le site accepte le WebP.</p></article>
+      </div>
+    </section>
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Does my image leave my device?","acceptedAnswer":{"@type":"Answer","text":"No. The browser converts the image locally; it is not uploaded to the Fyloz application server."}},
+        {"@type":"Question","name":"Which format should I use?","acceptedAnswer":{"@type":"Answer","text":"JPG is widely compatible for photos, PNG supports transparency, and WebP is designed for efficient web images. The best choice depends on the destination."}},
+        {"@type":"Question","name":"Will conversion reduce quality?","acceptedAnswer":{"@type":"Answer","text":"JPG and WebP are lossy formats when exported with lossy quality settings. PNG is lossless, but the output file may be larger."}},
+        {"@type":"Question","name":"Can JPG keep transparent areas?","acceptedAnswer":{"@type":"Answer","text":"No. When converting a transparent image to JPG, Fyloz fills transparent areas with white."}}
+      ]
+    }
+    </script>
+    <section class="section" aria-labelledby="related-tools-title"><p class="eyebrow">PLUS D’OUTILS GRATUITS</p><h2 id="related-tools-title">Que voulez-vous faire ensuite ?</h2><div class="steps"><article><h3>Respecter une limite de taille</h3><p><a href="/fr/">Compresser une image</a> pour atteindre 50 Ko, 100 Ko ou une autre limite personnalisée.</p></article><article><h3>Modifier les dimensions en pixels</h3><p><a href="/fr/resize-image/">Redimensionner une image</a> avec une largeur et une hauteur précises en conservant les proportions.</p></article><article><h3>Modifier ou marquer une photo</h3><p><a href="/fr/edit-image/">Pivoter ou retourner une image</a>, or <a href="/fr/watermark-image/">ajoutez un filigrane texte</a>.</p></article></div></section>
+  </main>
+  <footer class="footer"><span>© Fyloz</span><nav aria-label="Navigation de pied de page"><a href="/fr/privacy.html">Confidentialité</a><a href="/fr/terms.html">Conditions</a><a href="/fr/contact.html">Contact</a></nav><span>Des outils utiles, simplement.</span></footer>
+  <script src="/i18n.js?v=20261017-i18n"></script>
+<script src="/convert-image/convert.js?v=20261017-i18n"></script>
+  <script src="/theme.js?v=20261017-i18n" defer></script>
+</body>
+</html>

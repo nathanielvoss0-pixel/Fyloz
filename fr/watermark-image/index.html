@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VN2T9XXN6R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VN2T9XXN6R');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f2ec">
+  <title>Ajouter un filigrane texte à une image | Fyloz</title>
+  <meta name="description" content="Ajoutez un filigrane texte à des images JPG, PNG et WebP. Réglez la couleur, l’opacité, la taille et la position.">
+  <link rel="canonical" href="https://fyloz.co99.win/fr/watermark-image/">
+  <link rel="alternate" hreflang="en" href="https://fyloz.co99.win/watermark-image/">
+  <link rel="alternate" hreflang="ar" href="https://fyloz.co99.win/ar/watermark-image/">
+  <link rel="alternate" hreflang="fr" href="https://fyloz.co99.win/fr/watermark-image/">
+  <link rel="alternate" hreflang="x-default" href="https://fyloz.co99.win/watermark-image/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Fyloz">
+  <meta property="og:title" content="Ajouter un filigrane texte à une image | Fyloz">
+  <meta property="og:description" content="Ajoutez un filigrane texte à des images JPG, PNG et WebP. Réglez la couleur, l’opacité, la taille et la position.">
+  <meta property="og:url" content="https://fyloz.co99.win/fr/watermark-image/">
+  <meta name="twitter:card" content="summary">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Outil de filigrane Fyloz","url":"https://fyloz.co99.win/fr/watermark-image/","applicationCategory":"MultimediaApplication","operatingSystem":"Any","description":"Ajoutez un filigrane texte à des images JPG, PNG et WebP. Réglez la couleur, l’opacité, la taille et la position.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":"fr"}</script>
+  <link rel="stylesheet" href="/styles.css?v=20261017-i18n">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/fr/" aria-label="Accueil Fyloz"><span aria-hidden="true">◆</span> fyloz</a>
+    <nav aria-label="Navigation principale"><a href="/fr/">Compresser</a><a href="/fr/resize-image/">Redimensionner</a><a href="/fr/convert-image/">Convertir</a><a href="/fr/edit-image/">Pivoter / retourner</a><a href="#how">Mode d’emploi</a><a href="/fr/pdf-tools/">Outils PDF</a></nav>
+  <button class="theme-toggle" type="button" aria-label="Changer le thème">☾ Mode sombre</button></header>
+<nav class="language-switcher" aria-label="Langue"><span>Langue:</span> <a href="/watermark-image/" lang="en">English</a><span aria-hidden="true"> · </span><a href="/ar/watermark-image/" lang="ar">العربية</a><span aria-hidden="true"> · </span><a href="/fr/watermark-image/" lang="fr" aria-current="page">Français</a></nav>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">OUTILS IMAGE</p>
+      <h1>Ajoutez un filigrane texte à votre <em>image.</em></h1>
+      <p class="intro-copy">Ajoutez un filigrane texte à votre image. Personnalisez le texte, la couleur, l’opacité, la taille et la position, puis téléchargez une copie.</p>
+    </section>
+    <section id="tool" class="workspace" aria-labelledby="tool-title">
+      <div class="work">
+        <h2 id="tool-title">Ajouter un filigrane texte</h2>
+        <label class="drop" for="image">
+          <span class="upload-mark" aria-hidden="true">↑</span>
+          <strong>Choisir une image</strong>
+          <span>ou déposez un fichier ici</span>
+          <input type="file" id="image" accept="image/jpeg,image/png,image/webp">
+          <small>JPG, PNG ou WebP · jusqu’à 20 Mo</small>
+        </label>
+        <p id="message" class="status" role="status" aria-live="polite">Choisissez une image pour commencer.</p>
+        <div id="download-result" class="result" hidden>
+          <div class="result-heading"><h3>Aperçu avec filigrane</h3><span id="result-format" class="savings"></span></div>
+          <img id="preview" class="preview" alt="Aperçu de l’image avec filigrane">
+          <p id="result-info" class="result-info"></p>
+          <a id="download" class="download" href="#">Télécharger l’image avec filigrane</a>
+        </div>
+      </div>
+      <aside class="settings">
+        <h2>Paramètres du filigrane</h2>
+        <label for="watermark-text">Texte du filigrane</label>
+        <input id="watermark-text" class="text-setting" type="text" maxlength="80" value="© Your name" placeholder="Saisissez votre texte">
+        <label for="position">Position</label>
+        <select id="position" class="format-select">
+          <option value="bottom-right">En bas à droite</option>
+          <option value="bottom-left">En bas à gauche</option>
+          <option value="center">Au centre</option>
+          <option value="top-left">En haut à gauche</option>
+          <option value="top-right">En haut à droite</option>
+        </select>
+        <label for="color">Couleur du texte</label>
+        <input id="color" class="color-setting" type="color" value="#ffffff">
+        <label for="opacity">Opacité <span id="opacity-value">65%</span></label>
+        <input id="opacity" class="range-setting" type="range" min="10" max="100" value="65">
+        <label for="size">Taille du texte <span id="size-value">5%</span></label>
+        <input id="size" class="range-setting" type="range" min="2" max="15" value="5">
+        <label for="format">Format de sortie</label>
+        <select id="format" class="format-select">
+          <option value="image/jpeg">JPG</option>
+          <option value="image/png">PNG</option>
+          <option value="image/webp">WebP</option>
+        </select>
+        <button class="primary" id="go" type="button" disabled>Préparer le téléchargement <span aria-hidden="true">↗</span></button>
+        <p class="privacy"><span aria-hidden="true">◎</span> <strong>La confidentialité est intégrée.</strong> Le filigrane est ajouté dans votre navigateur ; l’image n’est pas envoyée.</p>
+      </aside>
+    </section>
+    <section id="how" class="section">
+      <p class="eyebrow">MODE D’EMPLOI</p><h2>Protégez vos aperçus en trois étapes.</h2>
+      <div class="steps">
+        <article><b>01 — CHOISIR</b><h3>Chargez votre image</h3><p>Utilisez une image JPG, PNG ou WebP enregistrée sur votre appareil.</p></article>
+        <article><b>02 — PERSONNALISER</b><h3>Réglez le filigrane</h3><p>Modifiez le texte, la couleur, l’opacité, la taille et la position selon votre image.</p></article>
+        <article><b>03 — ENREGISTRER</b><h3>Téléchargez une copie</h3><p>Vérifiez l’aperçu puis téléchargez l’image filigranée.</p></article>
+      </div>
+    </section>
+    <section class="section faq-section">
+      <p class="eyebrow">BON À SAVOIR</p><h2>Questions fréquentes sur le filigrane</h2>
+      <div class="faq-list">
+        <article><h3>Cela modifie-t-il mon fichier original ?</h3><p>Non. Fyloz crée un fichier de sortie distinct et ne modifie pas l’original.</p></article>
+        <article><h3>Puis-je déplacer le filigrane ?</h3><p>Choisissez l’une des cinq positions : les quatre coins ou le centre. Prévisualisez le résultat avant le téléchargement.</p></article>
+        <article><h3>Puis-je conserver la transparence ?</h3><p>PNG et WebP peuvent conserver les zones transparentes. JPG ne gère pas la transparence et utilise un fond blanc si nécessaire.</p></article>
+        <article><h3>Mon image est-elle envoyée ?</h3><p>Non. Le navigateur applique le filigrane localement. L’image n’est pas envoyée au serveur de l’application Fyloz.</p></article>
+      </div>
+    </section>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"Does this change my original file?","acceptedAnswer":{"@type":"Answer","text":"No. Fyloz creates a separate output file and does not modify the original."}},
+      {"@type":"Question","name":"Can I move the watermark?","acceptedAnswer":{"@type":"Answer","text":"Choose one of five positions: four corners or the center. Preview the result before downloading."}},
+      {"@type":"Question","name":"Can I keep transparency?","acceptedAnswer":{"@type":"Answer","text":"PNG and WebP can preserve transparent areas. JPG has no transparency and uses a white background where needed."}},
+      {"@type":"Question","name":"Is my image uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. The browser applies the watermark locally. The image is not uploaded to the Fyloz application server."}}
+    ]}
+    </script>
+    <section class="section" aria-labelledby="related-tools-title"><p class="eyebrow">PLUS D’OUTILS GRATUITS</p><h2 id="related-tools-title">Autres façons de préparer vos images</h2><div class="steps"><article><h3>Corriger l’orientation</h3><p><a href="/fr/edit-image/">Pivoter ou retourner une image</a> avant de la partager.</p></article><article><h3>Respecter une limite de taille</h3><p><a href="/fr/">Compresser une image</a> à une limite en Ko avant le téléversement.</p></article><article><h3>Changer le format</h3><p><a href="/fr/convert-image/">Convertir JPG, PNG et WebP</a> et prévisualisez le résultat.</p></article></div></section>
+  </main>
+  <footer class="footer"><span>© Fyloz</span><nav aria-label="Navigation de pied de page"><a href="/fr/privacy.html">Confidentialité</a><a href="/fr/terms.html">Conditions</a><a href="/fr/contact.html">Contact</a></nav><span>Des outils utiles, simplement.</span></footer>
+  <script src="/i18n.js?v=20261017-i18n"></script>
+<script src="/watermark-image/watermark.js?v=20261017-i18n"></script>
+  <script src="/theme.js?v=20261017-i18n" defer></script>
+</body>
+</html>

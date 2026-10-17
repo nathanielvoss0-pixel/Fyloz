@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VN2T9XXN6R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VN2T9XXN6R');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f2ec">
+  <title>إضافة علامة مائية نصية إلى صورة | Fyloz</title>
+  <meta name="description" content="أضف علامة مائية نصية إلى صور JPG وPNG وWebP واختر اللون والشفافية والحجم والموضع.">
+  <link rel="canonical" href="https://fyloz.co99.win/ar/watermark-image/">
+  <link rel="alternate" hreflang="en" href="https://fyloz.co99.win/watermark-image/">
+  <link rel="alternate" hreflang="ar" href="https://fyloz.co99.win/ar/watermark-image/">
+  <link rel="alternate" hreflang="fr" href="https://fyloz.co99.win/fr/watermark-image/">
+  <link rel="alternate" hreflang="x-default" href="https://fyloz.co99.win/watermark-image/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Fyloz">
+  <meta property="og:title" content="إضافة علامة مائية نصية إلى صورة | Fyloz">
+  <meta property="og:description" content="أضف علامة مائية نصية إلى صور JPG وPNG وWebP واختر اللون والشفافية والحجم والموضع.">
+  <meta property="og:url" content="https://fyloz.co99.win/ar/watermark-image/">
+  <meta name="twitter:card" content="summary">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"أداة العلامة المائية Fyloz","url":"https://fyloz.co99.win/ar/watermark-image/","applicationCategory":"MultimediaApplication","operatingSystem":"Any","description":"أضف علامة مائية نصية إلى صور JPG وPNG وWebP واختر اللون والشفافية والحجم والموضع.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":"ar"}</script>
+  <link rel="stylesheet" href="/styles.css?v=20261017-i18n">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/ar/" aria-label="الصفحة الرئيسية لـ Fyloz"><span aria-hidden="true">◆</span> fyloz</a>
+    <nav aria-label="التنقل الرئيسي"><a href="/ar/">ضغط الصور</a><a href="/ar/resize-image/">تغيير الحجم</a><a href="/ar/convert-image/">تحويل</a><a href="/ar/edit-image/">تدوير / قلب</a><a href="#how">طريقة العمل</a><a href="/ar/pdf-tools/">أدوات PDF</a></nav>
+  <button class="theme-toggle" type="button" aria-label="تبديل المظهر">☾ الوضع الداكن</button></header>
+<nav class="language-switcher" aria-label="اللغة"><span>اللغة:</span> <a href="/watermark-image/" lang="en">English</a><span aria-hidden="true"> · </span><a href="/ar/watermark-image/" lang="ar" aria-current="page">العربية</a><span aria-hidden="true"> · </span><a href="/fr/watermark-image/" lang="fr">Français</a></nav>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">أدوات الصور</p>
+      <h1>أضف علامة مائية نصية إلى <em>صورتك.</em></h1>
+      <p class="intro-copy">أضف علامة مائية نصية إلى صورتك. خصّص النص واللون والشفافية والحجم والموضع، ثم نزّل نسخة جديدة.</p>
+    </section>
+    <section id="tool" class="workspace" aria-labelledby="tool-title">
+      <div class="work">
+        <h2 id="tool-title">أضف علامة مائية نصية</h2>
+        <label class="drop" for="image">
+          <span class="upload-mark" aria-hidden="true">↑</span>
+          <strong>اختر صورة</strong>
+          <span>أو أفلت ملفاً هنا</span>
+          <input type="file" id="image" accept="image/jpeg,image/png,image/webp">
+          <small>JPG أو PNG أو WebP · حتى 20 ميغابايت</small>
+        </label>
+        <p id="message" class="status" role="status" aria-live="polite">اختر صورة للبدء.</p>
+        <div id="download-result" class="result" hidden>
+          <div class="result-heading"><h3>معاينة الصورة بعلامة مائية</h3><span id="result-format" class="savings"></span></div>
+          <img id="preview" class="preview" alt="معاينة الصورة مع العلامة المائية">
+          <p id="result-info" class="result-info"></p>
+          <a id="download" class="download" href="#">تنزيل الصورة بعلامة مائية</a>
+        </div>
+      </div>
+      <aside class="settings">
+        <h2>إعدادات العلامة المائية</h2>
+        <label for="watermark-text">نص العلامة المائية</label>
+        <input id="watermark-text" class="text-setting" type="text" maxlength="80" value="© Your name" placeholder="أدخل النص">
+        <label for="position">الموضع</label>
+        <select id="position" class="format-select">
+          <option value="bottom-right">أسفل اليمين</option>
+          <option value="bottom-left">أسفل اليسار</option>
+          <option value="center">الوسط</option>
+          <option value="top-left">أعلى اليسار</option>
+          <option value="top-right">أعلى اليمين</option>
+        </select>
+        <label for="color">لون النص</label>
+        <input id="color" class="color-setting" type="color" value="#ffffff">
+        <label for="opacity">الشفافية <span id="opacity-value">65%</span></label>
+        <input id="opacity" class="range-setting" type="range" min="10" max="100" value="65">
+        <label for="size">حجم النص <span id="size-value">5%</span></label>
+        <input id="size" class="range-setting" type="range" min="2" max="15" value="5">
+        <label for="format">صيغة الإخراج</label>
+        <select id="format" class="format-select">
+          <option value="image/jpeg">JPG</option>
+          <option value="image/png">PNG</option>
+          <option value="image/webp">WebP</option>
+        </select>
+        <button class="primary" id="go" type="button" disabled>جهّز التنزيل <span aria-hidden="true">↗</span></button>
+        <p class="privacy"><span aria-hidden="true">◎</span> <strong>خصوصيتك جزء من التصميم.</strong> تتم إضافة العلامة المائية في متصفحك ولا تُرفع الصورة.</p>
+      </aside>
+    </section>
+    <section id="how" class="section">
+      <p class="eyebrow">طريقة العمل</p><h2>احمِ معايناتك في ثلاث خطوات.</h2>
+      <div class="steps">
+        <article><b>01 — اختر</b><h3>حمّل صورتك</h3><p>استخدم صورة JPG أو PNG أو WebP محفوظة على جهازك.</p></article>
+        <article><b>02 — خصّص</b><h3>اضبط العلامة المائية</h3><p>غيّر النص واللون والشفافية والحجم والموضع بما يناسب الصورة.</p></article>
+        <article><b>03 — نزّل</b><h3>نزّل نسخة</h3><p>راجع المعاينة ثم نزّل الصورة بعلامة مائية.</p></article>
+      </div>
+    </section>
+    <section class="section faq-section">
+      <p class="eyebrow">معلومات مفيدة</p><h2>أسئلة شائعة عن العلامة المائية</h2>
+      <div class="faq-list">
+        <article><h3>هل يغيّر هذا الملف الأصلي؟</h3><p>لا. ينشئ Fyloz ملفاً ناتجاً منفصلاً ولا يغيّر الأصل.</p></article>
+        <article><h3>هل يمكنني تغيير موضع العلامة المائية؟</h3><p>اختر واحداً من خمسة مواضع: الزوايا الأربع أو الوسط. عاين النتيجة قبل التنزيل.</p></article>
+        <article><h3>هل يمكنني الحفاظ على الشفافية؟</h3><p>يمكن لـPNG وWebP الحفاظ على المناطق الشفافة. لا يدعم JPG الشفافية ويستخدم خلفية بيضاء عند الحاجة.</p></article>
+        <article><h3>هل تُرفع صورتي؟</h3><p>لا. يضيف المتصفح العلامة المائية محلياً، ولا تُرفع الصورة إلى خادم تطبيق Fyloz.</p></article>
+      </div>
+    </section>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"Does this change my original file?","acceptedAnswer":{"@type":"Answer","text":"No. Fyloz creates a separate output file and does not modify the original."}},
+      {"@type":"Question","name":"Can I move the watermark?","acceptedAnswer":{"@type":"Answer","text":"Choose one of five positions: four corners or the center. Preview the result before downloading."}},
+      {"@type":"Question","name":"Can I keep transparency?","acceptedAnswer":{"@type":"Answer","text":"PNG and WebP can preserve transparent areas. JPG has no transparency and uses a white background where needed."}},
+      {"@type":"Question","name":"Is my image uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. The browser applies the watermark locally. The image is not uploaded to the Fyloz application server."}}
+    ]}
+    </script>
+    <section class="section" aria-labelledby="related-tools-title"><p class="eyebrow">المزيد من الأدوات المجانية</p><h2 id="related-tools-title">طرق أخرى لتجهيز الصور</h2><div class="steps"><article><h3>صحّح الاتجاه</h3><p><a href="/ar/edit-image/">دوّر صورة أو اقلبها</a> قبل مشاركتها.</p></article><article><h3>التزم بحد الحجم</h3><p><a href="/ar/">ضغط صورة</a> إلى حجم محدد بالكيلوبايت قبل رفعها.</p></article><article><h3>غيّر الصيغة</h3><p><a href="/ar/convert-image/">حوّل JPG وPNG وWebP</a> وعاين الناتج.</p></article></div></section>
+  </main>
+  <footer class="footer"><span>© Fyloz</span><nav aria-label="روابط التذييل"><a href="/ar/privacy.html">الخصوصية</a><a href="/ar/terms.html">الشروط</a><a href="/ar/contact.html">اتصل بنا</a></nav><span>أدوات مفيدة وبكل بساطة.</span></footer>
+  <script src="/i18n.js?v=20261017-i18n"></script>
+<script src="/watermark-image/watermark.js?v=20261017-i18n"></script>
+  <script src="/theme.js?v=20261017-i18n" defer></script>
+</body>
+</html>

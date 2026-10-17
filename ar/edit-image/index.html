@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VN2T9XXN6R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VN2T9XXN6R');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f2ec">
+  <title>تدوير الصور وقلبها عبر الإنترنت | Fyloz</title>
+  <meta name="description" content="دوّر صور JPG وPNG وWebP أو اقلبها أفقياً وعمودياً. عاين النتيجة ونزّل نسخة معدّلة.">
+  <link rel="canonical" href="https://fyloz.co99.win/ar/edit-image/">
+  <link rel="alternate" hreflang="en" href="https://fyloz.co99.win/edit-image/">
+  <link rel="alternate" hreflang="ar" href="https://fyloz.co99.win/ar/edit-image/">
+  <link rel="alternate" hreflang="fr" href="https://fyloz.co99.win/fr/edit-image/">
+  <link rel="alternate" hreflang="x-default" href="https://fyloz.co99.win/edit-image/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Fyloz">
+  <meta property="og:title" content="تدوير الصور وقلبها عبر الإنترنت | Fyloz">
+  <meta property="og:description" content="دوّر صور JPG وPNG وWebP أو اقلبها أفقياً وعمودياً. عاين النتيجة ونزّل نسخة معدّلة.">
+  <meta property="og:url" content="https://fyloz.co99.win/ar/edit-image/">
+  <meta name="twitter:card" content="summary">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"أداة تدوير الصور Fyloz","url":"https://fyloz.co99.win/ar/edit-image/","applicationCategory":"MultimediaApplication","operatingSystem":"Any","description":"دوّر صور JPG وPNG وWebP أو اقلبها أفقياً وعمودياً. عاين النتيجة ونزّل نسخة معدّلة.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":"ar"}</script>
+  <link rel="stylesheet" href="/styles.css?v=20261017-i18n">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/ar/" aria-label="الصفحة الرئيسية لـ Fyloz"><span aria-hidden="true">◆</span> fyloz</a>
+    <nav aria-label="التنقل الرئيسي"><a href="/ar/">ضغط الصور</a><a href="/ar/resize-image/">تغيير الحجم</a><a href="/ar/convert-image/">تحويل</a><a href="/ar/watermark-image/">علامة مائية</a><a href="/ar/pdf-tools/">أدوات PDF</a></nav>
+  <button class="theme-toggle" type="button" aria-label="تبديل المظهر">☾ الوضع الداكن</button></header>
+<nav class="language-switcher" aria-label="اللغة"><span>اللغة:</span> <a href="/edit-image/" lang="en">English</a><span aria-hidden="true"> · </span><a href="/ar/edit-image/" lang="ar" aria-current="page">العربية</a><span aria-hidden="true"> · </span><a href="/fr/edit-image/" lang="fr">Français</a></nav>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">أدوات الصور</p>
+      <h1>دوّر صورة أو اقلبها <em>عبر الإنترنت.</em></h1>
+      <p class="intro-copy">دوّر الصورة بزاوية 90 درجة أو اعكسها أفقياً أو عمودياً. عاين التغييرات واحفظ نسخة جديدة دون رفع الأصل.</p>
+    </section>
+    <section id="tool" class="workspace" aria-labelledby="tool-title">
+      <div class="work">
+        <h2 id="tool-title">دوّر صورة أو اقلبها</h2>
+        <label class="drop" for="image">
+          <span class="upload-mark" aria-hidden="true">↑</span>
+          <strong>اختر صورة</strong>
+          <span>أو أفلت ملفاً هنا</span>
+          <input type="file" id="image" accept="image/jpeg,image/png,image/webp">
+          <small>JPG أو PNG أو WebP · حتى 20 ميغابايت</small>
+        </label>
+        <p id="message" class="status" role="status" aria-live="polite">اختر صورة للبدء.</p>
+        <div id="download-result" class="result" hidden>
+          <div class="result-heading"><h3>معاينة الصورة المعدّلة</h3><span id="result-format" class="savings"></span></div>
+          <img id="preview" class="preview" alt="معاينة الصورة بعد تدويرها أو قلبها">
+          <p id="result-info" class="result-info"></p>
+          <a id="download" class="download" href="#">تنزيل الصورة المعدّلة</a>
+        </div>
+      </div>
+      <aside class="settings">
+        <h2>أدوات التعديل</h2>
+        <div class="transform-controls">
+          <button type="button" id="rotate-left" class="secondary">↶ تدوير لليسار</button>
+          <button type="button" id="rotate-right" class="secondary">↷ تدوير لليمين</button>
+          <button type="button" id="flip-horizontal" class="secondary">⇆ قلب أفقي</button>
+          <button type="button" id="flip-vertical" class="secondary">⇅ قلب عمودي</button>
+        </div>
+        <button type="button" id="reset" class="secondary reset-control">إعادة ضبط التعديلات</button>
+        <label for="format">صيغة الإخراج</label>
+        <select id="format" class="format-select">
+          <option value="image/jpeg">JPG</option>
+          <option value="image/png">PNG</option>
+          <option value="image/webp">WebP</option>
+        </select>
+        <button class="primary" id="go" type="button" disabled>جهّز التنزيل <span aria-hidden="true">↗</span></button>
+        <p class="privacy"><span aria-hidden="true">◎</span> <strong>خصوصيتك جزء من التصميم.</strong> تتم جميع التعديلات في متصفحك ولا تُرفع صورتك.</p>
+        <p class="muted">لا يدعم JPG الشفافية. تُملأ المناطق الشفافة باللون الأبيض عند التصدير إلى JPG.</p>
+      </aside>
+    </section>
+    <section id="how" class="section">
+      <p class="eyebrow">طريقة العمل</p><h2>صحّح اتجاه الصورة في ثوانٍ.</h2>
+      <div class="steps">
+        <article><b>01 — اختر</b><h3>اختر صورة</h3><p>حمّل صورة JPG أو PNG أو WebP من جهازك.</p></article>
+        <article><b>02 — عدّل</b><h3>دوّر الصورة أو اعكسها</h3><p>دوّر لليسار أو اليمين، أو اقلب على أي محور، أو أعد الاتجاه الأصلي.</p></article>
+        <article><b>03 — نزّل</b><h3>اختر صيغة</h3><p>عاين النسخة المعدّلة ونزّلها بالصّيغة التي تفضلها.</p></article>
+      </div>
+    </section>
+    <section class="section faq-section">
+      <p class="eyebrow">معلومات مفيدة</p><h2>أسئلة شائعة عن التدوير والقلب</h2>
+      <div class="faq-list">
+        <article><h3>هل يغيّر التعديل الملف الأصلي؟</h3><p>لا. ينشئ Fyloz نسخة جديدة للتنزيل ويترك الملف الأصلي على جهازك كما هو.</p></article>
+        <article><h3>ما الفرق بين التدوير والقلب؟</h3><p>يدير التدوير الصورة. أما القلب الأفقي فيعكس اليمين واليسار، والقلب العمودي يعكس الأعلى والأسفل.</p></article>
+        <article><h3>هل يمكن الحفاظ على الخلفية الشفافة؟</h3><p>اختر PNG أو WebP للحفاظ على الشفافية. لا يدعم JPG الشفافية ويستخدم خلفية بيضاء.</p></article>
+        <article><h3>هل تُرفع التعديلات؟</h3><p>لا. تتم معالجة الصورة محلياً في المتصفح ولا تُرفع إلى خادم تطبيق Fyloz.</p></article>
+      </div>
+    </section>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"Does editing change my original file?","acceptedAnswer":{"@type":"Answer","text":"No. Fyloz creates a new downloadable copy and leaves the original file on your device unchanged."}},
+      {"@type":"Question","name":"What is the difference between rotate and flip?","acceptedAnswer":{"@type":"Answer","text":"Rotate turns the image. A horizontal flip mirrors left and right; a vertical flip mirrors top and bottom."}},
+      {"@type":"Question","name":"Can I keep a transparent background?","acceptedAnswer":{"@type":"Answer","text":"Choose PNG or WebP to preserve transparency. JPG has no transparency and uses a white background."}},
+      {"@type":"Question","name":"Are the edits uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. The image is processed locally in your browser and is not uploaded to the Fyloz application server."}}
+    ]}
+    </script>
+    <section class="section" aria-labelledby="related-tools-title"><p class="eyebrow">المزيد من الأدوات المجانية</p><h2 id="related-tools-title">أكمل تجهيز صورتك</h2><div class="steps"><article><h3>قلل حجم الملف</h3><p><a href="/ar/">اضغط صورتك</a> إلى حجم مستهدف بالكيلوبايت للاستمارات والرفع.</p></article><article><h3>غيّر الصيغة</h3><p><a href="/ar/convert-image/">حوّل بين JPG وPNG وWebP</a> في متصفحك.</p></article><article><h3>أضف نصاً يوضح الملكية</h3><p><a href="/ar/watermark-image/">أضف علامة مائية نصية</a> بموضع ولون وشفافية تختارها.</p></article></div></section>
+  </main>
+  <footer class="footer"><span>© Fyloz</span><nav aria-label="روابط التذييل"><a href="/ar/privacy.html">الخصوصية</a><a href="/ar/terms.html">الشروط</a><a href="/ar/contact.html">اتصل بنا</a></nav><span>أدوات مفيدة وبكل بساطة.</span></footer>
+  <script src="/i18n.js?v=20261017-i18n"></script>
+<script src="/edit-image/edit.js?v=20261017-i18n"></script>
+  <script src="/theme.js?v=20261017-i18n" defer></script>
+</body>
+</html>

@@ -1,4 +1,5 @@
 const $ = id => document.getElementById(id);
+const localize = text => window.FylozI18n ? window.FylozI18n.translate(text) : text;
 const fileInput = $('image');
 const message = $('message');
 const go = $('go');
@@ -19,7 +20,7 @@ let fileReadId = 0;
 const allowed = ['image/jpeg', 'image/png', 'image/webp'];
 
 function say(text, error = false) {
-  message.textContent = text;
+  message.textContent = localize(text);
   message.style.color = error ? '#a12c19' : '';
 }
 function clearResult() {
@@ -87,8 +88,8 @@ async function renderPreview() {
     downloadLink.href = outputUrl;
     const ext = type === 'image/jpeg' ? 'jpg' : type === 'image/png' ? 'png' : 'webp';
     downloadLink.download = (selectedFile.name.replace(/\.[^.]+$/, '') || 'image') + '-edited.' + ext;
-    resultInfo.textContent = width + ' × ' + height + ' px · ' + (blob.size / 1024).toFixed(1) + ' KB · original ' +
-      sourceImage.naturalWidth + ' × ' + sourceImage.naturalHeight + ' px';
+    resultInfo.textContent = localize(width + ' × ' + height + ' px · ' + (blob.size / 1024).toFixed(1) + ' KB · original ' +
+      sourceImage.naturalWidth + ' × ' + sourceImage.naturalHeight + ' px');
     resultFormat.textContent = ext.toUpperCase();
     resultBox.hidden = false;
     say('Preview updated. Download when you are happy with the result.');
@@ -124,7 +125,8 @@ dropArea.addEventListener('drop', event => {
   } catch { say('Use the file picker to select your image.', true); }
 });
 fileInput.addEventListener('change', async () => {
-  const current = ++renderId;
+  const current = ++fileReadId;
+  ++renderId;
   clearResult();
   selectedFile = fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
   sourceImage = null; angle = 0; flipX = 1; flipY = 1;
@@ -140,7 +142,7 @@ fileInput.addEventListener('change', async () => {
   go.disabled = true; fileInput.disabled = true; say('Reading image…');
   try {
     const image = await readImage(selectedFile);
-    if (current !== renderId) return;
+    if (current !== fileReadId) return;
     if (image.naturalWidth * image.naturalHeight > 20000000) {
       throw new Error('This image has more than 20 million pixels. Resize it first, then edit the smaller copy.');
     }
@@ -149,7 +151,7 @@ fileInput.addEventListener('change', async () => {
     await renderPreview();
     if (current === fileReadId) go.disabled = false;
   } catch (error) {
-    if (current !== renderId) return;
+    if (current !== fileReadId) return;
     sourceImage = null; selectedFile = null; go.disabled = true;
     say(error.message || 'Could not read this image.', true);
   } finally {
