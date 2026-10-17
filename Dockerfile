@@ -16,6 +16,8 @@ COPY convert-image /www/convert-image
 COPY edit-image /www/edit-image
 COPY watermark-image /www/watermark-image
 COPY compress-image-to-200kb /www/compress-image-to-200kb
+COPY compress-image-to-50kb /www/compress-image-to-50kb
+COPY compress-image-to-100kb /www/compress-image-to-100kb
 COPY guides /www/guides
 COPY pdf-tools /www/pdf-tools
 
