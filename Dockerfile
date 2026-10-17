@@ -20,6 +20,8 @@ COPY compress-image-to-50kb /www/compress-image-to-50kb
 COPY compress-image-to-100kb /www/compress-image-to-100kb
 COPY guides /www/guides
 COPY pdf-tools /www/pdf-tools
+COPY ar /www/ar
+COPY fr /www/fr
 
 EXPOSE 8080
 CMD ["httpd", "-f", "-p", "8080", "-h", "/www"]
