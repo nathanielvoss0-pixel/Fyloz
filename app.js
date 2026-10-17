@@ -11,6 +11,117 @@ const savingsLabel = $('savings');
 let selectedFile = null;
 let outputUrl = null;
 
+const pageLanguage = document.documentElement.lang || 'en';
+const copy = {
+  en: {
+    select: 'Select an image to get started.',
+    picker: 'Please choose a JPG, PNG, or WebP image.',
+    tooLarge: 'This image is over 20 MB. Choose a smaller file.',
+    ready: 'Ready to prepare.',
+    pickerFallback: 'Use the file picker to select your image.',
+    chooseFirst: 'Choose an image first.',
+    invalidLimit: 'Enter a target between 1 and 20,480 KB.',
+    preparing: 'Preparing image…',
+    compressing: 'Compressing in your browser. Keep this tab open…',
+    original: 'original →',
+    compressed: 'compressed',
+    jpeg: 'JPEG',
+    smaller: '% smaller',
+    withinTarget: 'Within target',
+    done: (size, kb) => 'Done — the output is ' + size + ', within your ' + kb + ' KB limit.',
+    prepareButton: 'Prepare image <span aria-hidden="true">↗</span>',
+    compressedTitle: 'Your compressed image',
+    download: 'Download compressed image',
+    openError: 'The browser could not open this image. Try another file.',
+    encodeError: 'Your browser could not create the compressed image.',
+    prepareError: 'Your browser could not prepare this image.',
+    targetError: 'This target is too small to reach reliably. Try a larger KB limit.',
+    exceededError: 'The result exceeded your limit. Please try again with a larger target.',
+    genericError: 'Something went wrong. Please try another image.',
+    failureCategory: error => error.message.includes('could not open') ? 'image_open'
+      : error.message.includes('could not create') ? 'jpeg_encode'
+      : error.message.includes('could not prepare') ? 'canvas_prepare'
+      : error.message.includes('too small to reach') ? 'target_unreachable'
+      : error.message.includes('exceeded your limit') ? 'target_exceeded' : 'unknown'
+  },
+  ar: {
+    select: 'اختر صورة للبدء.',
+    picker: 'اختر صورة بصيغة JPG أو PNG أو WebP.',
+    tooLarge: 'حجم الصورة يتجاوز 20 ميغابايت. اختر صورة أصغر.',
+    ready: 'جاهزة للمعالجة.',
+    pickerFallback: 'استخدم زر اختيار الملف لتحديد الصورة.',
+    chooseFirst: 'اختر صورة أولاً.',
+    invalidLimit: 'أدخل حداً بين 1 و20,480 كيلوبايت.',
+    preparing: 'جارٍ تجهيز الصورة…',
+    compressing: 'جارٍ ضغط الصورة في متصفحك. اترك هذه الصفحة مفتوحة…',
+    original: 'الحجم الأصلي ←',
+    compressed: 'بعد الضغط',
+    jpeg: 'JPEG',
+    smaller: '% أصغر',
+    withinTarget: 'ضمن الحد',
+    done: (size, kb) => 'تم الضغط. حجم الصورة ' + size + '، ضمن حد ' + kb + ' كيلوبايت.',
+    prepareButton: 'جهّز الصورة <span aria-hidden="true">↗</span>',
+    compressedTitle: 'الصورة بعد الضغط',
+    download: 'نزّل الصورة المضغوطة',
+    openError: 'تعذّر فتح الصورة في المتصفح. جرّب ملفاً آخر.',
+    encodeError: 'تعذّر على المتصفح إنشاء الصورة المضغوطة.',
+    prepareError: 'تعذّر تجهيز الصورة في المتصفح.',
+    targetError: 'تعذّر الوصول إلى هذا الحجم. جرّب حداً أكبر بالكيلوبايت.',
+    exceededError: 'تجاوز الملف الناتج الحد المطلوب. جرّب حداً أكبر.',
+    genericError: 'حدث خطأ. جرّب صورة أخرى.',
+    failureCategory: error => error.message.includes('could not open') ? 'image_open'
+      : error.message.includes('could not create') ? 'jpeg_encode'
+      : error.message.includes('could not prepare') ? 'canvas_prepare'
+      : error.message.includes('too small to reach') ? 'target_unreachable'
+      : error.message.includes('exceeded your limit') ? 'target_exceeded' : 'unknown'
+  },
+  fr: {
+    select: 'Choisissez une image pour commencer.',
+    picker: 'Choisissez une image JPG, PNG ou WebP.',
+    tooLarge: 'Cette image dépasse 20 Mo. Choisissez un fichier plus petit.',
+    ready: 'Prête à être traitée.',
+    pickerFallback: 'Utilisez le sélecteur de fichiers pour choisir une image.',
+    chooseFirst: 'Choisissez d’abord une image.',
+    invalidLimit: 'Saisissez une limite entre 1 et 20 480 Ko.',
+    preparing: 'Préparation de l’image…',
+    compressing: 'Compression dans votre navigateur. Gardez cette page ouverte…',
+    original: 'original →',
+    compressed: 'compressée',
+    jpeg: 'JPEG',
+    smaller: '% plus petite',
+    withinTarget: 'Dans la limite',
+    done: size => 'Terminé : le fichier fait ' + size + ' et respecte la limite.',
+    prepareButton: 'Préparer l’image <span aria-hidden="true">↗</span>',
+    compressedTitle: 'Votre image compressée',
+    download: 'Télécharger l’image compressée',
+    openError: 'Le navigateur ne peut pas ouvrir cette image. Essayez un autre fichier.',
+    encodeError: 'Le navigateur ne peut pas créer l’image compressée.',
+    prepareError: 'Le navigateur ne peut pas préparer cette image.',
+    targetError: 'Cette limite est trop basse pour être atteinte. Essayez une valeur plus élevée.',
+    exceededError: 'Le fichier dépasse la limite. Essayez une valeur plus élevée.',
+    genericError: 'Une erreur s’est produite. Essayez une autre image.',
+    failureCategory: error => error.message.includes('could not open') ? 'image_open'
+      : error.message.includes('could not create') ? 'jpeg_encode'
+      : error.message.includes('could not prepare') ? 'canvas_prepare'
+      : error.message.includes('too small to reach') ? 'target_unreachable'
+      : error.message.includes('exceeded your limit') ? 'target_exceeded' : 'unknown'
+  }
+};
+const ui = copy[pageLanguage] || copy.en;
+function trackCompressionEvent(name, parameters) {
+  if (typeof window.gtag !== 'function') return;
+  window.gtag('event', name, { language: pageLanguage, ...parameters });
+}
+function localizedError(error) {
+  const message = error && error.message ? error.message : '';
+  if (message.includes('could not open')) return ui.openError;
+  if (message.includes('could not create')) return ui.encodeError;
+  if (message.includes('could not prepare')) return ui.prepareError;
+  if (message.includes('too small to reach')) return ui.targetError;
+  if (message.includes('exceeded your limit')) return ui.exceededError;
+  return ui.genericError;
+}
+
 const dropArea = document.querySelector('.drop');
 dropArea.addEventListener('dragover', event => {
   event.preventDefault();
@@ -29,7 +140,7 @@ dropArea.addEventListener('drop', event => {
     fileInput.files = transfer.files;
     fileInput.dispatchEvent(new Event('change', { bubbles: true }));
   } catch {
-    say('Use the file picker to select your image.', true);
+    say(ui.pickerFallback, true);
   }
 });
 function say(text, error = false) {
@@ -73,22 +184,22 @@ fileInput.addEventListener('change', () => {
   clearResult();
   selectedFile = fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
   if (!selectedFile) {
-    say('Select an image to get started.');
+    say(ui.select);
     return;
   }
   if (!['image/jpeg', 'image/png', 'image/webp'].includes(selectedFile.type)) {
     selectedFile = null;
     fileInput.value = '';
-    say('Please choose a JPG, PNG, or WebP image.', true);
+    say(ui.picker, true);
     return;
   }
   if (selectedFile.size > 20 * 1024 * 1024) {
     selectedFile = null;
     fileInput.value = '';
-    say('This image is over 20 MB. Choose a smaller file.', true);
+    say(ui.tooLarge, true);
     return;
   }
-  say(selectedFile.name + ' · ' + formatKB(selectedFile.size) + ' · Ready to prepare.');
+  say(selectedFile.name + ' · ' + formatKB(selectedFile.size) + ' · ' + ui.ready);
 });
 
 function readImage(file) {
@@ -167,13 +278,13 @@ async function compressToLimit(img, targetBytes) {
 
 go.addEventListener('click', async () => {
   if (!selectedFile) {
-    say('Choose an image first.', true);
+    say(ui.chooseFirst, true);
     fileInput.focus();
     return;
   }
   const kb = Number(limitInput.value);
   if (!Number.isFinite(kb) || kb < 1 || kb > 20480) {
-    say('Enter a target between 1 and 20,480 KB.', true);
+    say(ui.invalidLimit, true);
     limitInput.focus();
     return;
   }
@@ -181,8 +292,9 @@ go.addEventListener('click', async () => {
   clearResult();
   fileInput.disabled = true;
   go.disabled = true;
-  go.textContent = 'Preparing image…';
-  say('Compressing in your browser. Keep this tab open…');
+  go.textContent = ui.preparing;
+  say(ui.compressing);
+  trackCompressionEvent('compress_start', { target_kb: kb });
   try {
     const image = await readImage(selectedFile);
     const targetBytes = Math.floor(kb * 1024);
@@ -194,19 +306,27 @@ go.addEventListener('click', async () => {
     preview.src = outputUrl;
     downloadLink.href = outputUrl;
     downloadLink.download = (selectedFile.name.replace(/\.[^.]+$/, '') || 'image') + '-fyloz.jpg';
-    resultInfo.textContent = formatKB(selectedFile.size) + ' original → ' + formatKB(result.blob.size) +
-      ' compressed · ' + result.width + ' × ' + result.height + ' px · JPEG';
+    resultInfo.textContent = formatKB(selectedFile.size) + ' ' + ui.original + ' ' + formatKB(result.blob.size) +
+      ' ' + ui.compressed + ' · ' + result.width + ' × ' + result.height + ' px · ' + ui.jpeg;
     const saved = selectedFile.size > 0 ? Math.round((1 - result.blob.size / selectedFile.size) * 100) : 0;
-    savingsLabel.textContent = saved > 0 ? saved + '% smaller' : 'Within target';
+    savingsLabel.textContent = saved > 0 ? saved + ui.smaller : ui.withinTarget;
     resultBox.hidden = false;
-    say('Done — the output is ' + formatKB(result.blob.size) + ', within your ' + kb + ' KB limit.');
+    trackCompressionEvent('compress_success', {
+      target_kb: kb,
+      output_kb: Math.round(result.blob.size / 1024)
+    });
+    say(ui.done(formatKB(result.blob.size), kb));
     resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   } catch (error) {
-    say(error.message || 'Something went wrong. Please try another image.', true);
+    trackCompressionEvent('compress_error', {
+      target_kb: kb,
+      error_category: ui.failureCategory(error)
+    });
+    say(localizedError(error), true);
   } finally {
     fileInput.disabled = false;
     go.disabled = false;
-    go.innerHTML = 'Prepare image <span aria-hidden="true">↗</span>';
+    go.innerHTML = ui.prepareButton;
   }
 });
 
