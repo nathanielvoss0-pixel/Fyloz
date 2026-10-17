@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f4f2ec">
+<title>ضغط الصور أونلاين مجاناً إلى حجم KB الذي تريده | Fyloz</title>
+<meta name="description" content="اضغط صور JPG وPNG وWebP إلى حدّ مخصص بالكيلوبايت. عاين الجودة والحجم ثم نزّل نسخة JPEG، مع معالجة الصورة في متصفحك.">
+<link rel="canonical" href="https://fyloz.co99.win/ar/">
+<link rel="alternate" hreflang="en" href="https://fyloz.co99.win/">
+<link rel="alternate" hreflang="ar" href="https://fyloz.co99.win/ar/">
+<link rel="alternate" hreflang="fr" href="https://fyloz.co99.win/fr/">
+<link rel="alternate" hreflang="x-default" href="https://fyloz.co99.win/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Fyloz">
+<meta property="og:title" content="ضغط الصور أونلاين مجاناً | Fyloz">
+<meta property="og:description" content="حدّد حجم الصورة بالكيلوبايت، عاين النتيجة، ونزّلها مباشرة من متصفحك.">
+<meta property="og:url" content="https://fyloz.co99.win/ar/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/styles.css?v=20261017-i18n">
+<style>
+html[dir="rtl"] h1{letter-spacing:0}
+html[dir="rtl"] .brand span{margin-right:0;margin-left:5px}
+html[dir="rtl"] .work{border-right:0;border-left:1px solid var(--line)}
+html[dir="rtl"] .privacy span{margin-right:0;margin-left:4px}
+.language-links{font-size:13px;color:var(--muted);margin:0 0 20px}
+@media(max-width:720px){html[dir="rtl"] .work{border-left:0}}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VN2T9XXN6R"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VN2T9XXN6R');</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fyloz لضغط الصور","url":"https://fyloz.co99.win/ar/","applicationCategory":"MultimediaApplication","operatingSystem":"Any","inLanguage":"ar","description":"أداة مجانية لضغط الصور إلى حدّ مخصص بالكيلوبايت، تعمل في المتصفح.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+</head>
+<body>
+<header class="site-header">
+<a class="brand" href="/ar/" aria-label="الصفحة الرئيسية لـ Fyloz"><span aria-hidden="true">◆</span> fyloz</a>
+<nav aria-label="التنقل الرئيسي"><a href="#tool">ضغط الصور</a><a href="/resize-image/">تغيير الأبعاد</a><a href="/pdf-tools/">أدوات PDF</a></nav>
+<button class="theme-toggle" type="button" aria-label="تغيير المظهر">☾ الوضع الداكن</button>
+</header>
+<main>
+<section class="intro">
+<p class="eyebrow">أدوات ملفات مجانية</p>
+<h1>اضغط صورك إلى الحجم الذي تحتاجه <em>أونلاين.</em></h1>
+<p class="intro-copy">اختر صورة، حدّد أكبر حجم مسموح به بالكيلوبايت، ثم عاين النتيجة قبل تنزيلها. يعمل الضغط داخل متصفحك، ولا تُرفع الصورة إلى خادم Fyloz. الأداة تحفظ الناتج بصيغة JPEG.</p>
+<p class="language-links">اللغة: العربية · <a href="/">English</a> · <a href="/fr/">Français</a></p>
+</section>
+<section id="tool" class="workspace" aria-labelledby="tool-title">
+<div class="work">
+<h2 id="tool-title">ضغط صورة</h2>
+<label class="drop" for="image">
+<span class="upload-mark" aria-hidden="true">↑</span><strong>اختر صورة</strong><span>أو استخدم اختيار الملف أدناه</span>
+<input type="file" id="image" accept="image/jpeg,image/png,image/webp">
+<small>JPG أو PNG أو WebP · حتى 20 ميغابايت</small>
+</label>
+<p id="message" class="status" role="status" aria-live="polite">اختر صورة للبدء.</p>
+<div id="download-result" class="result" hidden>
+<div class="result-heading"><h3>الصورة بعد الضغط</h3><span id="savings" class="savings"></span></div>
+<img id="preview" class="preview" alt="معاينة الصورة المضغوطة">
+<p id="result-info" class="result-info"></p>
+<a id="download" class="download" href="#">نزّل الصورة المضغوطة</a>
+</div>
+</div>
+<aside class="settings">
+<h2>حدّد الحجم الأقصى</h2>
+<label for="limit">أكبر حجم للملف</label>
+<div class="limit-field"><input id="limit" type="number" min="1" max="20480" value="100" inputmode="numeric" aria-describedby="limit-help"><span>KB</span></div>
+<p id="limit-help" class="muted">ستكون الصورة الناتجة ضمن هذا الحد أو ستخبرك الأداة إن تعذّر الوصول إليه.</p>
+<div class="presets" aria-label="أحجام شائعة"><button type="button" data-kb="50">50 KB</button><button type="button" data-kb="100" class="selected">100 KB</button><button type="button" data-kb="200">200 KB</button><button type="button" data-kb="500">500 KB</button></div>
+<button class="primary" id="go" type="button">جهّز الصورة <span aria-hidden="true">↗</span></button>
+<p class="privacy"><span aria-hidden="true">◎</span> <strong>خصوصيتك أولاً.</strong> تتم معالجة الصورة في هذا المتصفح ولا تُرفع إلى خادم.</p>
+</aside>
+</section>
+<section class="section" aria-labelledby="steps-title">
+<p class="eyebrow">كيف تستعمل الأداة</p><h2 id="steps-title">ثلاث خطوات لضغط الصورة</h2>
+<div class="steps">
+<article><b>01 — اختر</b><h3>حدّد صورة من جهازك</h3><p>اختر ملف JPG أو PNG أو WebP بحجم لا يتجاوز 20 ميغابايت.</p></article>
+<article><b>02 — حدّد الحجم</b><h3>اكتب الحد المطلوب</h3><p>استعمل حدّ الكيلوبايت المذكور في تعليمات الموقع أو الاستمارة.</p></article>
+<article><b>03 — راجع ونزّل</b><h3>افحص النتيجة</h3><p>تحقق من حجم الملف ووضوحه قبل تنزيل نسخة JPEG.</p></article>
+</div>
+</section>
+<section class="section" aria-labelledby="forms-title">
+<p class="eyebrow">للاستمارات والرفع</p><h2 id="forms-title">حجم الملف ليس الشرط الوحيد</h2>
+<p>قد ترفض الاستمارة صورةً رغم أن حجمها صغير؛ تحقق أيضاً من نوع الملف، والعرض والارتفاع بالبكسل، ونسبة الأبعاد، وقواعد الصورة. إذا كان الموقع يطلب حداً محدداً، افتح الصفحة المناسبة: <a href="/ar/compress-image-to-50kb/">ضغط الصورة إلى 50 KB</a> أو <a href="/ar/compress-image-to-100kb/">ضغط الصورة إلى 100 KB</a>، واقرأ <a href="/guides/image-upload-rejected/">دليل حل مشكلة رفض رفع الصور</a>.</p>
+<div class="steps">
+<article><b>تغيير الأبعاد</b><h3>هل يطلب الموقع مقاساً بالبكسل؟</h3><p>استعمل <a href="/resize-image/">أداة تغيير أبعاد الصور</a>؛ حجم الملف وأبعاده شرطان مختلفان.</p></article>
+<article><b>تحويل الصيغة</b><h3>هل الصيغة غير مقبولة؟</h3><p>حوّل بين JPG وPNG وWebP باستخدام <a href="/convert-image/">أداة تحويل الصور</a>.</p></article>
+<article><b>ملفات PDF</b><h3>تحتاج إلى تعديل مستند؟</h3><p>ادمج ملفات PDF أو قسّمها أو حوّل الصور إليها من <a href="/pdf-tools/">أدوات PDF المجانية</a>.</p></article>
+</div>
+</section>
+<section class="section" aria-labelledby="faq-title">
+<p class="eyebrow">أجوبة سريعة</p><h2 id="faq-title">أسئلة عن ضغط الصور</h2>
+<div class="faq-list">
+<article><h3>هل تُرفع صوري إلى الإنترنت؟</h3><p>تعالج الأداة الصورة في متصفحك ولا ترسلها إلى خادم تطبيق Fyloz.</p></article>
+<article><h3>هل يمكن ضمان جودة الصورة بعد الضغط؟</h3><p>لا. الوصول إلى حجم صغير قد يتطلب خفض الجودة أو الأبعاد. راجع المعاينة قبل استعمال الملف.</p></article>
+<article><h3>ما صيغة الملف الناتج؟</h3><p>تنزّل الأداة صورة JPEG. تتحول المساحات الشفافة في PNG أو WebP إلى اللون الأبيض.</p></article>
+<article><h3>هل يصل الملف دائماً إلى الحجم المحدد؟</h3><p>تحاول الأداة خفض الجودة والأبعاد، لكن بعض الصور لا يمكن ضغطها إلى حد صغير مع الحفاظ على وضوح مناسب.</p></article>
+</div>
+</section>
+</main>
+<footer class="footer"><span>© Fyloz</span><nav aria-label="روابط أسفل الصفحة"><a href="/privacy.html">الخصوصية</a><a href="/terms.html">الشروط</a><a href="/contact.html">اتصل بنا</a></nav><span>أدوات مفيدة وبسيطة.</span></footer>
+<script src="/app.js?v=20261017-i18n"></script>
+<script src="/theme.js?v=20261017-i18n" defer></script>
+</body>
+</html>

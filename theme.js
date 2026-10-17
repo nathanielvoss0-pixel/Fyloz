@@ -1,6 +1,12 @@
 (() => {
   const root = document.documentElement;
   const storageKey = "fyloz-theme";
+  const language = root.lang || "en";
+  const labels = {
+    en: { light: "☀ Light mode", dark: "☾ Dark mode", switchLight: "Switch to light mode", switchDark: "Switch to dark mode" },
+    ar: { light: "☀ الوضع الفاتح", dark: "☾ الوضع الداكن", switchLight: "التبديل إلى الوضع الفاتح", switchDark: "التبديل إلى الوضع الداكن" },
+    fr: { light: "☀ Mode clair", dark: "☾ Mode sombre", switchLight: "Passer au thème clair", switchDark: "Passer au thème sombre" }
+  }[language] || { light: "☀ Light mode", dark: "☾ Dark mode", switchLight: "Switch to light mode", switchDark: "Switch to dark mode" };
   const getSavedTheme = () => {
     try {
       const value = window.localStorage.getItem(storageKey);
@@ -14,8 +20,8 @@
     if (meta) meta.setAttribute("content", theme === "dark" ? "#151614" : "#f4f2ec");
     document.querySelectorAll(".theme-toggle").forEach((button) => {
       const isDark = theme === "dark";
-      button.textContent = isDark ? "☀ Light mode" : "☾ Dark mode";
-      button.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+      button.textContent = isDark ? labels.light : labels.dark;
+      button.setAttribute("aria-label", isDark ? labels.switchLight : labels.switchDark);
       button.setAttribute("aria-pressed", isDark ? "true" : "false");
     });
   };
