@@ -1,4 +1,5 @@
 const $ = id => document.getElementById(id);
+const localize = text => window.FylozI18n ? window.FylozI18n.translate(text) : text;
 const fileInput = $('image');
 const message = $('message');
 const go = $('go');
@@ -39,7 +40,7 @@ dropArea.addEventListener('drop', event => {
   }
 });
 function say(text, error = false) {
-  message.textContent = text;
+  message.textContent = localize(text);
   message.style.color = error ? '#a12c19' : '';
 }
 function clearResult() {
@@ -147,7 +148,7 @@ go.addEventListener('click', async () => {
   clearResult();
   fileInput.disabled = true;
   go.disabled = true;
-  go.textContent = 'Resizing image…';
+  go.textContent = localize('Resizing image…');
   say('Resizing in your browser. Keep this tab open…');
   try {
     // Give the browser a chance to paint the loading message before canvas work.
@@ -172,7 +173,7 @@ go.addEventListener('click', async () => {
     downloadLink.href = outputUrl;
     const extension = type === 'image/jpeg' ? 'jpg' : type === 'image/png' ? 'png' : 'webp';
     downloadLink.download = (selectedFile.name.replace(/\.[^.]+$/, '') || 'image') + '-resized.' + extension;
-    resultInfo.textContent = sourceImage.naturalWidth + ' × ' + sourceImage.naturalHeight + ' px → ' + width + ' × ' + height + ' px · ' + (blob.size / 1024).toFixed(1) + ' KB';
+    resultInfo.textContent = localize(sourceImage.naturalWidth + ' × ' + sourceImage.naturalHeight + ' px → ' + width + ' × ' + height + ' px · ' + (blob.size / 1024).toFixed(1) + ' KB');
     resultFormat.textContent = extension.toUpperCase();
     resultBox.hidden = false;
     say('Done — your resized image is ready to download.');
@@ -182,7 +183,7 @@ go.addEventListener('click', async () => {
   } finally {
     fileInput.disabled = false;
     go.disabled = false;
-    go.innerHTML = 'Resize image <span aria-hidden="true">↗</span>';
+    go.innerHTML = localize('Resize image') + ' <span aria-hidden="true">↗</span>';
   }
 });
 

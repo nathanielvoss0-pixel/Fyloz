@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VN2T9XXN6R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VN2T9XXN6R');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f2ec">
+  <title>Pivoter ou retourner une image en ligne | Fyloz</title>
+  <meta name="description" content="Pivotez ou retournez des images JPG, PNG et WebP. Prévisualisez les modifications et téléchargez une copie.">
+  <link rel="canonical" href="https://fyloz.co99.win/fr/edit-image/">
+  <link rel="alternate" hreflang="en" href="https://fyloz.co99.win/edit-image/">
+  <link rel="alternate" hreflang="ar" href="https://fyloz.co99.win/ar/edit-image/">
+  <link rel="alternate" hreflang="fr" href="https://fyloz.co99.win/fr/edit-image/">
+  <link rel="alternate" hreflang="x-default" href="https://fyloz.co99.win/edit-image/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Fyloz">
+  <meta property="og:title" content="Pivoter ou retourner une image en ligne | Fyloz">
+  <meta property="og:description" content="Pivotez ou retournez des images JPG, PNG et WebP. Prévisualisez les modifications et téléchargez une copie.">
+  <meta property="og:url" content="https://fyloz.co99.win/fr/edit-image/">
+  <meta name="twitter:card" content="summary">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Outil de rotation d’images Fyloz","url":"https://fyloz.co99.win/fr/edit-image/","applicationCategory":"MultimediaApplication","operatingSystem":"Any","description":"Pivotez ou retournez des images JPG, PNG et WebP. Prévisualisez les modifications et téléchargez une copie.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":"fr"}</script>
+  <link rel="stylesheet" href="/styles.css?v=20261017-i18n">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/fr/" aria-label="Accueil Fyloz"><span aria-hidden="true">◆</span> fyloz</a>
+    <nav aria-label="Navigation principale"><a href="/fr/">Compresser</a><a href="/fr/resize-image/">Redimensionner</a><a href="/fr/convert-image/">Convertir</a><a href="/fr/watermark-image/">Filigrane</a><a href="/fr/pdf-tools/">Outils PDF</a></nav>
+  <button class="theme-toggle" type="button" aria-label="Changer le thème">☾ Mode sombre</button></header>
+<nav class="language-switcher" aria-label="Langue"><span>Langue:</span> <a href="/edit-image/" lang="en">English</a><span aria-hidden="true"> · </span><a href="/ar/edit-image/" lang="ar">العربية</a><span aria-hidden="true"> · </span><a href="/fr/edit-image/" lang="fr" aria-current="page">Français</a></nav>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">OUTILS IMAGE</p>
+      <h1>Pivoter ou retourner une image <em>en ligne.</em></h1>
+      <p class="intro-copy">Pivotez une photo de 90 degrés ou retournez-la horizontalement ou verticalement. Prévisualisez les changements et enregistrez une copie sans envoyer l’original.</p>
+    </section>
+    <section id="tool" class="workspace" aria-labelledby="tool-title">
+      <div class="work">
+        <h2 id="tool-title">Pivoter ou retourner une image</h2>
+        <label class="drop" for="image">
+          <span class="upload-mark" aria-hidden="true">↑</span>
+          <strong>Choisir une image</strong>
+          <span>ou déposez un fichier ici</span>
+          <input type="file" id="image" accept="image/jpeg,image/png,image/webp">
+          <small>JPG, PNG ou WebP · jusqu’à 20 Mo</small>
+        </label>
+        <p id="message" class="status" role="status" aria-live="polite">Choisissez une image pour commencer.</p>
+        <div id="download-result" class="result" hidden>
+          <div class="result-heading"><h3>Aperçu de l’image modifiée</h3><span id="result-format" class="savings"></span></div>
+          <img id="preview" class="preview" alt="Aperçu de l’image pivotée ou retournée">
+          <p id="result-info" class="result-info"></p>
+          <a id="download" class="download" href="#">Télécharger l’image modifiée</a>
+        </div>
+      </div>
+      <aside class="settings">
+        <h2>Commandes de modification</h2>
+        <div class="transform-controls">
+          <button type="button" id="rotate-left" class="secondary">↶ Pivoter à gauche</button>
+          <button type="button" id="rotate-right" class="secondary">↷ Pivoter à droite</button>
+          <button type="button" id="flip-horizontal" class="secondary">⇆ Retourner horizontalement</button>
+          <button type="button" id="flip-vertical" class="secondary">⇅ Retourner verticalement</button>
+        </div>
+        <button type="button" id="reset" class="secondary reset-control">Réinitialiser</button>
+        <label for="format">Format de sortie</label>
+        <select id="format" class="format-select">
+          <option value="image/jpeg">JPG</option>
+          <option value="image/png">PNG</option>
+          <option value="image/webp">WebP</option>
+        </select>
+        <button class="primary" id="go" type="button" disabled>Préparer le téléchargement <span aria-hidden="true">↗</span></button>
+        <p class="privacy"><span aria-hidden="true">◎</span> <strong>La confidentialité est intégrée.</strong> Toutes les modifications sont faites dans votre navigateur ; l’image n’est pas envoyée.</p>
+        <p class="muted">JPG ne gère pas la transparence. Les zones transparentes deviennent blanches lors de l’export en JPG.</p>
+      </aside>
+    </section>
+    <section id="how" class="section">
+      <p class="eyebrow">MODE D’EMPLOI</p><h2>Corrigez l’orientation en quelques secondes.</h2>
+      <div class="steps">
+        <article><b>01 — CHOISIR</b><h3>Sélectionnez une image</h3><p>Chargez une image JPG, PNG ou WebP depuis votre appareil.</p></article>
+        <article><b>02 — AJUSTER</b><h3>Pivotez ou retournez</h3><p>Pivotez à gauche ou à droite, retournez sur un axe ou rétablissez l’orientation d’origine.</p></article>
+        <article><b>03 — ENREGISTRER</b><h3>Choisissez un format</h3><p>Prévisualisez la copie modifiée et téléchargez-la au format souhaité.</p></article>
+      </div>
+    </section>
+    <section class="section faq-section">
+      <p class="eyebrow">BON À SAVOIR</p><h2>Questions fréquentes sur la rotation et le retournement</h2>
+      <div class="faq-list">
+        <article><h3>La modification change-t-elle mon fichier original ?</h3><p>Non. Fyloz crée une nouvelle copie à télécharger et laisse le fichier original intact sur votre appareil.</p></article>
+        <article><h3>Quelle est la différence entre pivoter et retourner ?</h3><p>La rotation fait tourner l’image. Le retournement horizontal inverse gauche et droite ; le vertical inverse haut et bas.</p></article>
+        <article><h3>Puis-je conserver un fond transparent ?</h3><p>Choisissez PNG ou WebP pour conserver la transparence. JPG ne la prend pas en charge et utilise un fond blanc.</p></article>
+        <article><h3>Les modifications sont-elles envoyées ?</h3><p>Non. L’image est traitée localement dans votre navigateur et n’est pas envoyée au serveur de l’application Fyloz.</p></article>
+      </div>
+    </section>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"Does editing change my original file?","acceptedAnswer":{"@type":"Answer","text":"No. Fyloz creates a new downloadable copy and leaves the original file on your device unchanged."}},
+      {"@type":"Question","name":"What is the difference between rotate and flip?","acceptedAnswer":{"@type":"Answer","text":"Rotate turns the image. A horizontal flip mirrors left and right; a vertical flip mirrors top and bottom."}},
+      {"@type":"Question","name":"Can I keep a transparent background?","acceptedAnswer":{"@type":"Answer","text":"Choose PNG or WebP to preserve transparency. JPG has no transparency and uses a white background."}},
+      {"@type":"Question","name":"Are the edits uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. The image is processed locally in your browser and is not uploaded to the Fyloz application server."}}
+    ]}
+    </script>
+    <section class="section" aria-labelledby="related-tools-title"><p class="eyebrow">PLUS D’OUTILS GRATUITS</p><h2 id="related-tools-title">Terminez la préparation de votre image</h2><div class="steps"><article><h3>Réduire le poids du fichier</h3><p><a href="/fr/">Compressez votre image</a> selon une limite en Ko pour les formulaires et envois.</p></article><article><h3>Changer le format</h3><p><a href="/fr/convert-image/">Convertir entre JPG, PNG et WebP</a> dans votre navigateur.</p></article><article><h3>Ajouter un texte de propriété</h3><p><a href="/fr/watermark-image/">Ajouter un filigrane texte</a> avec la position, la couleur et l’opacité de votre choix.</p></article></div></section>
+  </main>
+  <footer class="footer"><span>© Fyloz</span><nav aria-label="Navigation de pied de page"><a href="/fr/privacy.html">Confidentialité</a><a href="/fr/terms.html">Conditions</a><a href="/fr/contact.html">Contact</a></nav><span>Des outils utiles, simplement.</span></footer>
+  <script src="/i18n.js?v=20261017-i18n"></script>
+<script src="/edit-image/edit.js?v=20261017-i18n"></script>
+  <script src="/theme.js?v=20261017-i18n" defer></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VN2T9XXN6R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VN2T9XXN6R');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f2ec">
+  <title>Redimensionner une image aux dimensions exactes | Fyloz</title>
+  <meta name="description" content="Modifiez précisément la largeur et la hauteur d’images JPG, PNG et WebP en pixels, puis prévisualisez le résultat.">
+  <link rel="canonical" href="https://fyloz.co99.win/fr/resize-image/">
+  <link rel="alternate" hreflang="en" href="https://fyloz.co99.win/resize-image/">
+  <link rel="alternate" hreflang="ar" href="https://fyloz.co99.win/ar/resize-image/">
+  <link rel="alternate" hreflang="fr" href="https://fyloz.co99.win/fr/resize-image/">
+  <link rel="alternate" hreflang="x-default" href="https://fyloz.co99.win/resize-image/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Fyloz">
+  <meta property="og:title" content="Redimensionner une image aux dimensions exactes | Fyloz">
+  <meta property="og:description" content="Modifiez précisément la largeur et la hauteur d’images JPG, PNG et WebP en pixels, puis prévisualisez le résultat.">
+  <meta property="og:url" content="https://fyloz.co99.win/fr/resize-image/">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Redimensionneur d’images Fyloz","url":"https://fyloz.co99.win/fr/resize-image/","applicationCategory":"MultimediaApplication","operatingSystem":"Any","description":"Modifiez précisément la largeur et la hauteur d’images JPG, PNG et WebP en pixels, puis prévisualisez le résultat.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":"fr"}</script>
+  <link rel="stylesheet" href="/styles.css?v=20261017-i18n">
+<meta name="referrer" content="strict-origin-when-cross-origin"></head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/fr/" aria-label="Accueil Fyloz"><span aria-hidden="true">◆</span> fyloz</a>
+    <nav aria-label="Navigation principale"><a href="/fr/">Compresser</a><a href="/fr/convert-image/">Convertir</a><a href="/fr/edit-image/">Pivoter / retourner</a><a href="#how">Mode d’emploi</a><a href="/fr/watermark-image/">Filigrane</a><a href="/fr/pdf-tools/">Outils PDF</a></nav>
+  <button class="theme-toggle" type="button" aria-label="Changer le thème">☾ Mode sombre</button></header>
+<nav class="language-switcher" aria-label="Langue"><span>Langue:</span> <a href="/resize-image/" lang="en">English</a><span aria-hidden="true"> · </span><a href="/ar/resize-image/" lang="ar">العربية</a><span aria-hidden="true"> · </span><a href="/fr/resize-image/" lang="fr" aria-current="page">Français</a></nav>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">OUTILS IMAGE</p>
+      <h1>Redimensionner les images aux <em>dimensions exactes en pixels.</em></h1>
+      <p class="intro-copy">Redimensionnez une image en saisissant la largeur et la hauteur exactes en pixels. Conservez le ratio pour éviter la déformation, choisissez JPG, PNG ou WebP, puis téléchargez une copie sans envoyer l’original.</p>
+    </section>
+    <section id="tool" class="workspace" aria-labelledby="tool-title">
+      <div class="work">
+        <h2 id="tool-title">Redimensionner une image</h2>
+        <label class="drop" for="image">
+          <span class="upload-mark" aria-hidden="true">↑</span>
+          <strong>Choisir une image</strong>
+          <span>ou utilisez le sélecteur de fichiers ci-dessous</span>
+          <input type="file" id="image" accept="image/jpeg,image/png,image/webp">
+          <small>JPG, PNG ou WebP · jusqu’à 20 Mo</small>
+        </label>
+        <p id="message" class="status" role="status" aria-live="polite">Choisissez une image pour commencer.</p>
+        <div id="download-result" class="result" hidden>
+          <div class="result-heading"><h3>Votre image redimensionnée</h3><span id="result-format" class="savings"></span></div>
+          <img id="preview" class="preview" alt="Aperçu de l’image redimensionnée">
+          <p id="result-info" class="result-info"></p>
+          <a id="download" class="download" href="#">Télécharger l’image redimensionnée</a>
+        </div>
+      </div>
+      <aside class="settings">
+        <h2>Choisir les dimensions</h2>
+        <p class="muted">Saisissez la largeur et la hauteur de sortie en pixels. Pour un traitement fiable, restez sous 20 millions de pixels.</p>
+        <div class="dimension-fields">
+          <div><label for="width">Largeur</label><div class="limit-field"><input id="width" type="number" min="1" max="12000" inputmode="numeric" placeholder="e.g. 800"><span>px</span></div></div>
+          <div><label for="height">Hauteur</label><div class="limit-field"><input id="height" type="number" min="1" max="12000" inputmode="numeric" placeholder="e.g. 600"><span>px</span></div></div>
+        </div>
+        <label class="check-row"><input id="keep-ratio" type="checkbox" checked> Conserver le ratio</label>
+        <label for="format">Format de sortie</label>
+        <select id="format" class="format-select">
+          <option value="image/jpeg">JPG</option>
+          <option value="image/png">PNG</option>
+          <option value="image/webp">WebP</option>
+        </select>
+        <button class="primary" id="go" type="button">Redimensionner l’image <span aria-hidden="true">↗</span></button>
+        <p class="privacy"><span aria-hidden="true">◎</span> <strong>La confidentialité est intégrée.</strong> L’image est redimensionnée dans ce navigateur et n’est envoyée à aucun serveur.</p>
+      </aside>
+    </section>
+    <section id="how" class="section">
+      <p class="eyebrow">MODE D’EMPLOI</p><h2>Des dimensions exactes en trois étapes.</h2>
+      <div class="steps">
+        <article><b>01 — CHOISIR</b><h3>Choisissez votre image</h3><p>Choisissez une image JPG, PNG ou WebP sur votre appareil.</p></article>
+        <article><b>02 — DÉFINIR LA TAILLE</b><h3>Saisissez les dimensions en pixels</h3><p>Gardez les proportions pour éviter la déformation, ou désactivez l’option pour une forme personnalisée.</p></article>
+        <article><b>03 — ENREGISTRER</b><h3>Prévisualisez et téléchargez</h3><p>Vérifiez les nouvelles dimensions et le format avant d’enregistrer l’image.</p></article>
+      </div>
+    </section>
+<section class="section" aria-labelledby="resize-use-title">
+      <p class="eyebrow">CHOISIR LES BONNES DIMENSIONS</p>
+      <h2 id="resize-use-title">Redimensionnez des photos pour les sites, formulaires et profils</h2>
+      <p>Lorsqu’un service demande une largeur et une hauteur en pixels, saisissez ces valeurs ici. Gardez le ratio activé pour préserver les proportions, sauf si vous souhaitez volontairement une autre forme.</p>
+      <div class="steps">
+        <article><b>PHOTOS DE PROFIL</b><h3>Créer un format carré</h3><p>Saisissez la même largeur et hauteur si le service exige une image carrée. Cet outil redimensionne l’image sans la recadrer.</p></article>
+        <article><b>IMAGES WEB</b><h3>Utiliser des dimensions plus petites</h3><p>Réduire les dimensions en pixels peut mieux adapter une image aux pages web et aux limites de téléversement.</p></article>
+        <article><b>FICHIER TROP LOURD ?</b><h3>Compresser le résultat</h3><p>Les dimensions et le poids du fichier sont deux choses différentes. Si le fichier doit respecter une limite en Ko, utilisez le <a href="/fr/">le compresseur d’images Fyloz</a> après le redimensionnement.</p></article>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="resize-faq-title">
+      <p class="eyebrow">RÉPONSES RAPIDES</p>
+      <h2 id="resize-faq-title">Questions fréquentes sur le redimensionnement</h2>
+      <div class="faq-list">
+        <article><h3>Mon image quitte-t-elle mon appareil ?</h3><p>Non. Le navigateur traite l’image localement ; le fichier n’est pas envoyé à Fyloz.</p></article>
+        <article><h3>Que signifie le ratio ?</h3><p>C’est le rapport entre la largeur et la hauteur. L’activer préserve les proportions lorsque vous modifiez une dimension.</p></article>
+        <article><h3>Puis-je agrandir une image ?</h3><p>Oui, mais l’agrandissement ne recrée pas les détails absents de l’original et peut rendre l’image floue.</p></article>
+        <article><h3>Quel format de sortie choisir ?</h3><p>JPG convient aux photos, PNG gère la transparence et WebP peut réduire le poids. Le format JPG remplace les zones transparentes par du blanc.</p></article>
+      </div>
+    </section>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Does my image leave my device?","acceptedAnswer":{"@type":"Answer","text":"No. The browser processes the image locally; the file is not uploaded to Fyloz."}},
+        {"@type":"Question","name":"What does aspect ratio mean?","acceptedAnswer":{"@type":"Answer","text":"It is the relationship between width and height. Keeping it checked preserves the image proportions when you change one dimension."}},
+        {"@type":"Question","name":"Can I make an image larger?","acceptedAnswer":{"@type":"Answer","text":"Yes, but enlarging an image cannot restore detail that was not in the original and may make it look blurry."}},
+        {"@type":"Question","name":"Which output format should I choose?","acceptedAnswer":{"@type":"Answer","text":"JPG is useful for photos, PNG supports transparency, and WebP can offer smaller files. JPG output fills transparent areas with white."}}
+      ]
+    }
+    </script>
+    <section class="section" aria-labelledby="related-tools-title"><p class="eyebrow">PLUS D’OUTILS GRATUITS</p><h2 id="related-tools-title">Continuer avec un autre outil image</h2><div class="steps"><article><h3>Besoin d’un fichier plus léger ?</h3><p>Utilisez le <a href="/fr/">compresseur d’images</a> pour respecter une taille maximale comme 50 ou 100 Ko.</p></article><article><h3>Besoin d’un autre format ?</h3><p><a href="/fr/convert-image/">Convertir JPG, PNG ou WebP</a> et choisissez le format et la qualité de sortie.</p></article><article><h3>Vous travaillez sur des documents ?</h3><p>Utilisez le <a href="/fr/pdf-tools/">Boîte à outils PDF</a> pour fusionner des fichiers, extraire des pages ou convertir des pages PDF en images.</p></article></div></section>
+  </main>
+  <footer class="footer"><span>© Fyloz</span><nav aria-label="Navigation de pied de page"><a href="/fr/privacy.html">Confidentialité</a><a href="/fr/terms.html">Conditions</a><a href="/fr/contact.html">Contact</a></nav><span>Des outils utiles, simplement.</span></footer>
+  <script src="/i18n.js?v=20261017-i18n"></script>
+<script src="/resize-image/resize.js?v=20261017-i18n"></script>
+  <script src="/theme.js?v=20261017-i18n" defer></script>
+</body>
+</html>
