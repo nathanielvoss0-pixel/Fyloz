@@ -1,4 +1,5 @@
 const $ = id => document.getElementById(id);
+const localize = text => window.FylozI18n ? window.FylozI18n.translate(text) : text;
 const operation = $('operation'), filesInput = $('files'), imagesInput = $('images');
 const fileLabel = $('file-label'), imageLabel = $('image-label');
 const rangeWrap = $('range-wrap'), rotationWrap = $('rotation-wrap'), imageWrap = $('image-wrap'), fileWrap = $('file-label-wrap'), textWrap = $('text-wrap'), imageFormatWrap = $('image-format-wrap');
