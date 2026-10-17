@@ -155,7 +155,8 @@ function clearResult() {
   resultBox.hidden = true;
 }
 function formatKB(bytes) {
-  return (bytes / 1024).toFixed(bytes < 10 * 1024 ? 2 : 1) + ' KB';
+  const unit = pageLanguage === 'fr' ? 'Ko' : 'KB';
+  return (bytes / 1024).toFixed(bytes < 10 * 1024 ? 2 : 1) + ' ' + unit;
 }
 function setLimit(value) {
   limitInput.value = value;
