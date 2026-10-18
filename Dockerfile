@@ -5,6 +5,7 @@ COPY index.html /www/index.html
 COPY favicon.svg /www/favicon.svg
 COPY styles.css /www/styles.css
 COPY theme.js /www/theme.js
+COPY ads.js /www/ads.js
 COPY i18n.js /www/i18n.js
 COPY app.js /www/app.js
 COPY privacy.html /www/privacy.html
