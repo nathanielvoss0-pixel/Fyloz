@@ -16,7 +16,12 @@
   const toolkit = sections.find((section) => section.getAttribute("aria-labelledby") === "more-tools-title");
   const pdfPromo = sections.find((section) => section.getAttribute("aria-labelledby") === "pdf-promo-title");
 
-  if (toolkit && pdfPromo) {
+  const policyContent = sections.find((section) => section.classList.contains("policy-content"));
+
+  if (policyContent) {
+    bannerTarget = main;
+    nativeTarget = main;
+  } else if (toolkit && pdfPromo) {
     const workspace = sections.find((section) =>
       section.classList.contains("workspace") || section.classList.contains("pdf-workspace")
     );
