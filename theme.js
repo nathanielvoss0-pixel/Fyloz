@@ -34,7 +34,7 @@
     try { window.localStorage.setItem(storageKey, next); } catch (_) {}
   });
   const adLoader = document.createElement("script");
-  adLoader.src = "/ads.js?v=20261018-top-placements";
+  adLoader.src = "/ads.js?v=20261018-all-pages-top";
   adLoader.async = true;
   document.head.appendChild(adLoader);
 })();
