@@ -17,8 +17,11 @@
   const pdfPromo = sections.find((section) => section.getAttribute("aria-labelledby") === "pdf-promo-title");
 
   if (toolkit && pdfPromo) {
-    bannerTarget = toolkit;
-    nativeTarget = pdfPromo;
+    const workspace = sections.find((section) =>
+      section.classList.contains("workspace") || section.classList.contains("pdf-workspace")
+    );
+    bannerTarget = workspace || toolkit;
+    nativeTarget = toolkit;
   } else {
     const workspace = sections.find((section) =>
       section.classList.contains("workspace") || section.classList.contains("pdf-workspace")
