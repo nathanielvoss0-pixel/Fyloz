@@ -33,4 +33,8 @@
     applyTheme(next);
     try { window.localStorage.setItem(storageKey, next); } catch (_) {}
   });
+  const adLoader = document.createElement("script");
+  adLoader.src = "/ads.js?v=20261018";
+  adLoader.async = true;
+  document.head.appendChild(adLoader);
 })();
