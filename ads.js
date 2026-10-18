@@ -1,14 +1,9 @@
 (() => {
-  const path = window.location.pathname.toLowerCase();
-  if (/\/(?:privacy|terms|contact)\.html$/.test(path)) return;
-
   const main = document.querySelector("main");
   if (!main) return;
 
   const sections = Array.from(main.children).filter((element) => element.tagName === "SECTION");
   const contentSections = sections.filter((section) => !section.classList.contains("intro"));
-  if (!contentSections.length) return;
-
   const language = (document.documentElement.lang || "en").slice(0, 2);
   const labels = {
     en: { section: "Advertisement", ad: "Advertisement" },
@@ -35,15 +30,30 @@
       nativeTarget = sections.slice(workspaceIndex + 1).find((section) =>
         section.classList.contains("section")
       ) || contentSections.find((section) => section !== workspace);
-    } else {
+    } else if (contentSections.length >= 2) {
       const firstIndex = Math.max(0, Math.ceil(contentSections.length / 3) - 1);
       const secondIndex = Math.max(firstIndex + 1, Math.ceil(contentSections.length * 2 / 3) - 1);
       bannerTarget = contentSections[Math.min(firstIndex, contentSections.length - 1)];
       nativeTarget = contentSections[Math.min(secondIndex, contentSections.length - 1)];
+    } else {
+      const content = contentSections[0] || sections[0] || main;
+      const blocks = Array.from(content.children).filter((element) =>
+        /^(P|H2|H3|UL|OL|FORM|DIV|A)$/.test(element.tagName)
+      );
+      if (blocks.length >= 2) {
+        const firstIndex = Math.max(0, Math.ceil(blocks.length / 3) - 1);
+        const secondIndex = Math.max(firstIndex + 1, Math.ceil(blocks.length * 2 / 3) - 1);
+        bannerTarget = blocks[Math.min(firstIndex, blocks.length - 1)];
+        nativeTarget = blocks[Math.min(secondIndex, blocks.length - 1)];
+      } else {
+        bannerTarget = content;
+        nativeTarget = content;
+      }
     }
   }
 
-  if (!bannerTarget || !nativeTarget || bannerTarget === nativeTarget) return;
+  if (!bannerTarget) return;
+  if (!nativeTarget) nativeTarget = bannerTarget;
 
   const makeLabel = () => {
     const label = document.createElement("p");
@@ -82,7 +92,12 @@
   container.id = "container-5ff3547fbdda406cc006e41bee9e576b";
   container.style.cssText = "width:100%;min-height:60px;";
   native.appendChild(container);
-  nativeTarget.insertAdjacentElement("afterend", native);
+
+  if (nativeTarget === bannerTarget) {
+    banner.insertAdjacentElement("afterend", native);
+  } else {
+    nativeTarget.insertAdjacentElement("afterend", native);
+  }
 
   const nativeScript = document.createElement("script");
   nativeScript.async = true;
