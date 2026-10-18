@@ -34,20 +34,18 @@
         section.classList.contains("section")
       ) || contentSections.find((section) => section !== workspace);
     } else if (contentSections.length >= 2) {
-      const firstIndex = Math.max(0, Math.ceil(contentSections.length / 3) - 1);
-      const secondIndex = Math.max(firstIndex + 1, Math.ceil(contentSections.length * 2 / 3) - 1);
-      bannerTarget = contentSections[Math.min(firstIndex, contentSections.length - 1)];
-      nativeTarget = contentSections[Math.min(secondIndex, contentSections.length - 1)];
+      const bannerIndex = contentSections.length >= 3 ? 1 : 0;
+      const nativeIndex = contentSections.length >= 3 ? 2 : 1;
+      bannerTarget = contentSections[Math.min(bannerIndex, contentSections.length - 1)];
+      nativeTarget = contentSections[Math.min(nativeIndex, contentSections.length - 1)];
     } else {
       const content = contentSections[0] || sections[0] || main;
       const blocks = Array.from(content.children).filter((element) =>
         /^(P|H2|H3|UL|OL|FORM|DIV|A)$/.test(element.tagName)
       );
       if (blocks.length >= 2) {
-        const firstIndex = Math.max(0, Math.ceil(blocks.length / 3) - 1);
-        const secondIndex = Math.max(firstIndex + 1, Math.ceil(blocks.length * 2 / 3) - 1);
-        bannerTarget = blocks[Math.min(firstIndex, blocks.length - 1)];
-        nativeTarget = blocks[Math.min(secondIndex, blocks.length - 1)];
+        bannerTarget = blocks[0];
+        nativeTarget = blocks[1];
       } else {
         bannerTarget = content;
         nativeTarget = content;
